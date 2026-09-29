@@ -1,0 +1,265 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:05.928
+This is RUNSAFE, by Marc Donovici, an IT auditor in Strasbourg.
+
+2
+00:00:05.878 --> 00:00:10.682
+RUNSAFE is design software that applies mathematical proof to knitting.
+
+3
+00:00:10.682 --> 00:00:15.109
+It gives knitwear a damage rating: how far one snag can run.
+
+4
+00:00:15.109 --> 00:00:19.393
+So small faults stay repairable, and garments stay in use.
+
+5
+00:00:20.600 --> 00:00:22.933
+Your phone has a water rating.
+
+6
+00:00:22.883 --> 00:00:25.500
+Your sunscreen has an SPF.
+
+7
+00:00:25.500 --> 00:00:27.256
+Your sweater has nothing:
+
+8
+00:00:27.256 --> 00:00:30.487
+nobody can tell you how far one snag will run.
+
+9
+00:00:30.487 --> 00:00:35.760
+In this plain sleeve, one dropped stitch ladders through 116 loops.
+
+10
+00:00:35.760 --> 00:00:38.775
+In the RUNSAFE sleeve, it stops within nine,
+
+11
+00:00:38.775 --> 00:00:41.516
+and that limit is mathematically proved.
+
+12
+00:00:45.600 --> 00:00:49.207
+Marc's day job is checking whether claims hold up.
+
+13
+00:00:49.157 --> 00:00:51.498
+In fine knitwear, a snag at the elbow
+
+14
+00:00:51.498 --> 00:00:54.091
+of a plain sleeve can ladder to the cuff,
+
+15
+00:00:54.091 --> 00:00:57.089
+and an almost intact top can end up thrown away.
+
+16
+00:00:57.089 --> 00:00:58.970
+RUNSAFE began as a question:
+
+17
+00:00:58.970 --> 00:01:02.935
+could knitwear carry a damage rating that anyone can check?
+
+18
+00:01:05.600 --> 00:01:07.711
+The mechanism is simple.
+
+19
+00:01:07.661 --> 00:01:10.141
+Every eight rows comes a barrier course,
+
+20
+00:01:10.141 --> 00:01:13.365
+where each loop is held by two loops instead of one.
+
+21
+00:01:13.365 --> 00:01:16.733
+When a ladder reaches it, the second holder stops it,
+
+22
+00:01:16.733 --> 00:01:19.276
+and the proof doesn't count on friction.
+
+23
+00:01:25.600 --> 00:01:27.790
+The hard part is proving it.
+
+24
+00:01:27.740 --> 00:01:30.423
+Up to nine stitches can drop from this
+
+25
+00:01:30.423 --> 00:01:33.247
+one sleeve in a 33-digit number of ways.
+
+26
+00:01:33.247 --> 00:01:34.977
+No lab can test them all,
+
+27
+00:01:34.977 --> 00:01:37.883
+so the worst case is proved for every one.
+
+28
+00:01:37.883 --> 00:01:40.719
+First, the fabric: at most k times
+
+29
+00:01:40.719 --> 00:01:44.641
+k-plus-one over two segments open, at any size.
+
+30
+00:01:44.641 --> 00:01:47.561
+Second, the machine: compiling adds loops,
+
+31
+00:01:47.561 --> 00:01:52.219
+and the bound is proved to survive, faults in those loops included.
+
+32
+00:01:52.219 --> 00:01:59.185
+Third, the cost: from 155 times the machine passes, down to 1.31.
+
+33
+00:01:59.185 --> 00:02:06.332
+And every result is checked with Carnegie Mellon's open-source knitting simulator,
+
+34
+00:02:06.332 --> 00:02:08.859
+and 859,689 exhaustive tests.
+
+35
+00:02:10.600 --> 00:02:13.701
+So a designer no longer draws barriers.
+
+36
+00:02:13.651 --> 00:02:17.749
+They state the rating: one snag within a centimetre,
+
+37
+00:02:17.749 --> 00:02:22.557
+nine snags under 450 loops, at most 35 percent more knitting.
+
+38
+00:02:22.557 --> 00:02:26.284
+RUNSAFE checks the proved constructions in its library,
+
+39
+00:02:26.284 --> 00:02:29.875
+and returns the cheapest: a barrier every eight rows.
+
+40
+00:02:29.875 --> 00:02:33.846
+Ask for 300 loops, and nothing fits the budget.
+
+41
+00:02:33.846 --> 00:02:37.717
+Allow 50 percent, and it switches to staggered barriers,
+
+42
+00:02:37.717 --> 00:02:42.141
+compiled and verified, with a Shima Seiki machine file exported.
+
+43
+00:02:50.600 --> 00:02:53.115
+The rating goes on the care label.
+
+44
+00:02:53.065 --> 00:02:56.914
+Scan it, and your own phone downloads the knitting program,
+
+45
+00:02:56.914 --> 00:02:59.784
+rebuilds its loops, and re-checks the proof.
+
+46
+00:02:59.784 --> 00:03:02.224
+A brand, a repairer or a buyer can
+
+47
+00:03:02.224 --> 00:03:05.526
+verify it without taking anyone's word for it.
+
+48
+00:03:10.600 --> 00:03:14.765
+If a snag happens, the Studio shows which loops were released,
+
+49
+00:03:14.765 --> 00:03:16.579
+and lists those to re-form.
+
+50
+00:03:16.529 --> 00:03:20.904
+How repairers restore barrier loops is one of the first tests.
+
+51
+00:03:20.904 --> 00:03:23.884
+The sleeve also stays one continuous yarn,
+
+52
+00:03:23.884 --> 00:03:26.581
+with a deliberate route to unravel it.
+
+53
+00:03:30.600 --> 00:03:32.737
+So, where does this go?
+
+54
+00:03:32.688 --> 00:03:35.976
+Fine knitwear first, where quality failures such as
+
+55
+00:03:35.976 --> 00:03:39.328
+holes account for about a third of disposal reasons.
+
+56
+00:03:39.328 --> 00:03:45.839
+Next, tights, the classic ladder: 130 million pairs a year in France alone.
+
+57
+00:03:45.839 --> 00:03:49.979
+Then, a damage rating in digital product passports.
+
+58
+00:03:49.979 --> 00:03:53.246
+And the climate case: in a worked wool example,
+
+59
+00:03:53.246 --> 00:03:58.599
+the barrier repays its extra knitting if it prevents 0.7 percent of discards.
+
+60
+00:04:00.600 --> 00:04:06.422
+The three biggest challenges are physical validation, practical repair, and adoption.
+
+61
+00:04:06.372 --> 00:04:08.420
+First, a knitting laboratory,
+
+62
+00:04:08.420 --> 00:04:13.221
+to test the predicted damage limit after knitting, washing and wear.
+
+63
+00:04:13.221 --> 00:04:18.656
+Second, repair specialists, to establish how barrier loops can be restored,
+
+64
+00:04:18.656 --> 00:04:19.888
+and at what cost.
+
+65
+00:04:19.888 --> 00:04:25.956
+Third, a brand partner, to judge appearance, production time and willingness to pay.
+
+66
+00:04:25.956 --> 00:04:30.227
+That is the next step: turning a checked design into knitwear.

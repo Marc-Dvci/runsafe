@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RUNSAFE · A proved damage rating for knitwear</title>
+<meta name="description" content="RUNSAFE is design software that applies mathematical proof to knitting. It gives knitwear a damage rating: how far one snag can run, proved, compiled into the machine program and checkable by anyone.">
+<meta property="og:title" content="RUNSAFE · A proved damage rating for knitwear">
+<meta property="og:description" content="Your phone has a water rating. Your sunscreen has an SPF. Your sweater has nothing. RUNSAFE gives knitwear a damage rating anyone can check.">
+<meta property="og:image" content="assets/img/poster.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#17302a">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preload" href="assets/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <button class="icon-btn menu-btn" aria-label="Open navigation" aria-expanded="false" data-menu>
+    <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+  </button>
+  <a class="brand" href="#home" aria-label="RUNSAFE home">
+    <img src="assets/favicon.svg" alt="" width="36" height="36">
+    <span>RUNSAFE</span><small>Studio</small>
+  </a>
+  <div class="tagline-pill">
+    <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.2 8.4-7 10-3.8-1.6-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+    <span>A damage rating for knitwear: proved, compiled, checkable</span>
+  </div>
+  <span class="spacer"></span>
+  <a class="btn primary" href="#demo">
+    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/></svg>
+    <span>Watch the demo</span>
+  </a>
+</header>
+
+<div class="shell">
+  <nav class="nav" aria-label="Sections">
+    <a href="#home" class="active"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Home</span></a>
+    <a href="#demo"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9v6l5-3z"/></svg><span>Demo film</span></a>
+    <a href="#problem"><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2 18a2 2 0 0 0 1.7 3h16.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span>The problem</span></a>
+    <a href="#mechanism"><svg viewBox="0 0 24 24"><path d="M4 7c3 0 3 5 6 5s3-5 6-5 3 5 4 5M4 17c3 0 3-5 6-5s3 5 6 5 3-5 4-5"/></svg><span>The barrier course</span></a>
+    <a href="#proof"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.2 8.4-7 10-3.8-1.6-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><span>Proved, not sampled</span></a>
+    <div class="section">Studio</div>
+    <a href="#rate"><svg viewBox="0 0 24 24"><path d="M4 18a8 8 0 1 1 16 0"/><path d="M12 18l4-5"/></svg><span>Design from a rating</span></a>
+    <a href="#passport"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 18h2M18 14h2"/></svg><span>Garment passport</span></a>
+    <a href="#repair"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.8-.7-.7-2.8z"/></svg><span>Locate and repair</span></a>
+    <div class="section">Impact</div>
+    <a href="#scale"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10z"/><path d="M2 21c0-3 1.9-5.4 5.1-6"/></svg><span>Where it goes</span></a>
+    <a href="#evidence"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg><span>What is proved</span></a>
+    <a href="#next"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span>Next steps</span></a>
+    <a href="#about"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span>About</span></a>
+    <span class="nav-grow"></span>
+    <a href="#sources" class="muted-link"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5V21h16"/></svg><span>Sources</span></a>
+  </nav>
+  <button class="nav-dismiss" aria-label="Close navigation" data-dismiss></button>
+
+  <main>
+
+    <!-- HOME -->
+    <section id="home" class="scene hero" data-title="A sweater has no damage rating">
+      <p class="eyebrow">What does one snag cost?</p>
+      <h1>Your phone has a water rating.<br>Your sunscreen has an SPF.<br><em>Your sweater has nothing.</em></h1>
+      <div class="rating-row">
+        <div class="rating-card">
+          <svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 5h2"/><path d="M12 11c1.5 2 2 3 2 4a2 2 0 0 1-4 0c0-1 .5-2 2-4z"/></svg>
+          <span class="label">Phone</span><strong>IP68</strong><p>States the water it survives.</p>
+        </div>
+        <div class="rating-card">
+          <svg viewBox="0 0 24 24"><rect x="8" y="7" width="8" height="15" rx="2"/><path d="M10 7V3h4v4M11 13h3M11 16h3"/></svg>
+          <span class="label">Sunscreen</span><strong>SPF 50</strong><p>States the protection it gives.</p>
+        </div>
+        <div class="rating-card ours">
+          <svg viewBox="0 0 24 24"><path d="M8 3l-5 3 1 6 2-.5V21h12v-9.5l2 .5 1-6-5-3c-.5 1.5-2 2.5-4 2.5S8.5 4.5 8 3z"/></svg>
+          <span class="label">Knitwear</span><strong class="green">≤ 1 cm</strong>
+          <p><b>RUNSAFE ladder rating.</b> Proved in the loop-release model, kept in the machine program, checkable by anyone.</p>
+        </div>
+      </div>
+      <div class="hero-lead">
+        <p class="lead"><b>RUNSAFE is design software that applies mathematical proof to knitting.</b> It gives knitwear a damage rating, how far one snag can run, so small faults stay repairable and garments stay in use.</p>
+        <div class="cta-row">
+          <a class="btn primary big" href="#demo"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/></svg>Watch the 4:45 demo</a>
+          <a class="btn outline big" href="#rate">Try design from a rating</a>
+        </div>
+      </div>
+      <figure class="window">
+        <div class="window-bar"><i></i><i></i><i></i><span>RUNSAFE Studio · the same dropped loop in two compiled sleeves</span></div>
+        <img src="assets/img/hook.webp" alt="Two 3D sleeves in RUNSAFE Studio: in plain knitting one dropped loop unravels 116 loops; in the RUNSAFE sleeve it stops within 9 loops at a barrier course." width="1600" height="900" loading="eager">
+      </figure>
+      <div class="stat-band">
+        <div><strong><span class="red">116</span> → <span class="green">9</span></strong><span>loops released by one dropped stitch, plain sleeve against RUNSAFE sleeve</span></div>
+        <div><strong>1.31×</strong><span>machine passes against plain knitting, counted on the compiled program</span></div>
+        <div><strong>33 digits</strong><span>ways up to nine stitches can drop from this sleeve. The proof covers every one.</span></div>
+        <div><strong>859,689</strong><span>exhaustive fault sets checked on the emitted programs, all within the bound</span></div>
+      </div>
+    </section>
+
+    <!-- DEMO -->
+    <section id="demo" class="scene" data-title="Demo film">
+      <p class="eyebrow">The demo · 10 chapters · 4:45</p>
+      <h2>See it in the Studio.</h2>
+      <p class="sub">A narrated walkthrough recorded from RUNSAFE Studio and its presentation scenes, running on the compiled sleeve designs.</p>
+      <div class="player card">
+        <div class="player-video">
+          <video id="film" controls preload="metadata" playsinline poster="assets/img/poster.jpg">
+            <source src="assets/video/runsafe-demo.mp4" type="video/mp4">
+            <track kind="captions" src="assets/video/runsafe-demo.en.vtt" srclang="en" label="English" default>
+            <track kind="chapters" src="assets/video/runsafe-demo.chapters.vtt" srclang="en" label="Chapters">
+          </video>
+        </div>
+        <ol class="chapters" id="chapters"></ol>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section id="problem" class="scene split" data-title="The problem">
+      <div>
+        <p class="eyebrow">The problem</p>
+        <h2>One snag at the elbow. <em>A top in the bin.</em></h2>
+        <p class="body">In ordinary knitting each loop is held by the loop above it. Drop one, and the whole column can unravel. In fine knitwear and smooth yarns such as silk, fine cotton and polyamide, a snag at the elbow of a plain sleeve can ladder to the cuff, and an almost intact garment can end up thrown away.</p>
+        <p class="body">Run-stops exist, but they are validated on samples. Nobody states a worst case for a whole garment, and nobody can check one.</p>
+        <div class="mini-stats">
+          <div class="mini"><strong>≈ 37%</strong><span>of clothing-disposal reasons are intrinsic quality failures such as tears and holes <cite>Laitala &amp; Klepp, review of 17 studies</cite></span></div>
+          <div class="mini"><strong>5.2 Mt</strong><span>of clothing and footwear waste a year in the EU <cite>European Commission, July 2023</cite></span></div>
+        </div>
+      </div>
+      <figure class="shot">
+        <img src="assets/img/garment.webp" alt="Technical flat of a fitted top: in plain jersey a snag at the elbow ladders 22 cm to the cuff; with barrier courses it stops within 1 cm." width="1600" height="900" loading="lazy">
+        <figcaption><b class="red">22 cm</b> plain jersey, snag to cuff · <b class="green">≤ 1 cm</b> with a barrier every 8 rows, at 9 courses/cm</figcaption>
+      </figure>
+    </section>
+
+    <!-- MECHANISM -->
+    <section id="mechanism" class="scene split reverse" data-title="The barrier course">
+      <div>
+        <p class="eyebrow">The solution</p>
+        <h2>Every 8 rows, <em>a barrier course.</em></h2>
+        <p class="body">Each loop of the barrier course is held by two loops instead of one. A ladder that reaches it stops, because of how the loops hold each other. The proof does not count on friction, which matters most in smooth yarns where friction helps least.</p>
+        <div class="card bound-card">
+          <span class="hint">Model upper bound · <i>k</i> faults, fewer than the width</span>
+          <div class="formula">(8 + 1) · <i>k</i>(<i>k</i> + 1) / 2 <small>loops</small></div>
+          <div class="kgrid">
+            <div><i>k = 1</i><b>9</b></div><div><i>k = 2</i><b>27</b></div><div><i>k = 3</i><b>54</b></div><div><i>k = 5</i><b>135</b></div><div><i>k = 9</i><b>405</b></div>
+          </div>
+          <span class="hint">Arbitrary loop locations · ladders running down and up checked separately</span>
+        </div>
+      </div>
+      <figure class="shot">
+        <img src="assets/img/mechanism.webp" alt="Yarn close-up in RUNSAFE Studio: a ladder runs down a column of loops and stops at the barrier course, where the loop is held by its second loop." width="1600" height="900" loading="lazy">
+        <figcaption>Yarn view of the compiled program · the released loop is held by its second holder</figcaption>
+      </figure>
+    </section>
+
+    <!-- PROOF -->
+    <section id="proof" class="scene" data-title="Proved, not sampled">
+      <p class="eyebrow">Original mathematics · proved and checked for this project</p>
+      <div class="proof-head">
+        <h2>A damage limit that survives <em>the knitting machine.</em></h2>
+        <div class="count-card">
+          <span>Ways up to nine stitches can drop in this one sleeve</span>
+          <strong>719,129,210,529,640,888,003,430,838,628,432</strong>
+          <p>Sample tests cover a handful of them. The proof covers every one.</p>
+        </div>
+      </div>
+      <div class="proof-grid">
+        <article class="card proof-card">
+          <span class="kicker">01 · The fabric</span>
+          <div class="formula big"><i>B</i><sub>k</sub> = <i>k</i>(<i>k</i> + 1) / 2</div>
+          <h3>The worst case for <i>k</i> dropped loops.</h3>
+          <p>Barrier-to-barrier segments that can open. The same at every circumference, from a 72-stitch cuff to a 320-stitch body, for ladders running down or up.</p>
+          <div class="kgrid small"><div><i>k = 1</i><b>1</b></div><div><i>k = 2</i><b>3</b></div><div><i>k = 3</i><b>6</b></div><div><i>k = 9</i><b>45</b></div></div>
+        </article>
+        <article class="card proof-card">
+          <span class="kicker">02 · The machine program</span>
+          <div class="formula big"><i>D</i><sub>k</sub> ≤ (<i>s</i> + <i>d</i> − 1) <i>B</i><sub>k</sub></div>
+          <h3>The bound survives compilation.</h3>
+          <p>Compiling adds loops the design never drew. Faults in those extra loops are counted too.</p>
+          <div class="kgrid small"><div><i>k = 1</i><b>9</b></div><div><i>k = 2</i><b>27</b></div><div><i>k = 3</i><b>54</b></div><div><i>k = 9</i><b>405</b></div></div>
+        </article>
+        <article class="card proof-card">
+          <span class="kicker">03 · The cost</span>
+          <div class="formula big cost"><s>155×</s> <span class="arrow">→</span> 1.31×</div>
+          <h3>Carriage passes against plain knitting.</h3>
+          <p>The first optimal designs routed loops across the needle bed. The knittable barrier adds six passes per barrier, counted on the emitted program.</p>
+          <div class="kgrid small two"><div><i>barrier every 8 rows</i><b>9 loops · 1.31×</b></div><div><i>barrier every 16 rows</i><b>17 loops · 1.16×</b></div></div>
+        </article>
+      </div>
+      <div class="check-band">
+        <b>Checked, not only claimed</b>
+        <span>✓ Carnegie Mellon's open-source knitout simulator, unmodified</span>
+        <span>✓ 859,689 exhaustive fault sets, all within the bound</span>
+        <span>✓ Independently implemented program reader</span>
+        <span>✓ Verifier in the browser</span>
+      </div>
+    </section>
+
+    <!-- RATE -->
+    <section id="rate" class="scene" data-title="Design from a rating">
+      <p class="eyebrow">In the Studio · try it here</p>
+      <h2>Design from a rating.</h2>
+      <p class="sub">A designer no longer draws barriers. State the rating the garment must carry and the extra knitting you can afford; RUNSAFE returns the cheapest proved construction in its library. This is the Studio's logic for the 160-stitch seamless sleeve, running in your browser.</p>
+      <div class="app-frame">
+        <div class="rate-grid">
+          <div class="card">
+            <div class="card-head"><h3>The rating</h3><span class="hint">160-stitch seamless sleeve · 9 courses/cm</span></div>
+            <div class="field">
+              <label for="r-one">One snag stops within <span class="val" id="v-one">1.0 cm</span></label>
+              <input id="r-one" type="range" min="5" max="30" value="10">
+              <span class="hint" id="h-one">9 loops at this gauge</span>
+            </div>
+            <div class="field">
+              <label for="r-nine">Nine snags release at most <span class="val" id="v-nine">450 loops</span></label>
+              <input id="r-nine" type="range" min="15" max="120" value="45">
+              <span class="hint">anywhere in the garment, worst case</span>
+            </div>
+            <div class="field">
+              <label for="r-budget">Extra machine passes, at most <span class="val" id="v-budget">+35%</span></label>
+              <input id="r-budget" type="range" min="2" max="16" value="7">
+              <span class="hint">against plain knitting of the same loops</span>
+            </div>
+            <div class="presets">
+              <span class="hint">Try the film's steps:</span>
+              <button class="chip-btn" data-preset="10,45,7">1 cm · 450 · +35%</button>
+              <button class="chip-btn" data-preset="10,30,7">300 loops</button>
+              <button class="chip-btn" data-preset="10,30,10">allow +50%</button>
+            </div>
+          </div>
+          <div class="card answer" id="answer" aria-live="polite"></div>
+        </div>
+        <div class="card table-card">
+          <div class="card-head"><h3>Every construction checked</h3><span class="hint" id="t-count"></span></div>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th>Construction</th><th class="num">One snag</th><th class="num">Nine snags</th><th class="num">Carriage passes</th><th>Evidence</th><th>Meets the rating</th></tr></thead>
+              <tbody id="t-body"></tbody>
+            </table>
+          </div>
+          <p class="hint foot">Compiled designs show their verified worst cases and the passes counted on the emitted program. Other spacings use the proved bound (s + 1 loops for one snag, 45·(s + 1) for nine) and the counted rule of six extra passes per barrier. Bounds hold in the declared loop-release model; physical trials are the next step.</p>
+        </div>
+      </div>
+      <figure class="shot wide">
+        <img src="assets/img/export.webp" alt="A compiled design in RUNSAFE Studio: staggered barriers, 297 loops worst case for nine snags, 18,560 loops, 1.47× carriage passes, with its export menu listing the knitting program, machine program and Shima Seiki DAT file." width="1600" height="900" loading="lazy">
+        <figcaption>The compiled design opens with its exports: datasheet, knitting program, opening program, Shima Seiki DAT file, damage profile and the complete package.</figcaption>
+      </figure>
+    </section>
+
+    <!-- PASSPORT -->
+    <section id="passport" class="scene split" data-title="Garment passport">
+      <div>
+        <p class="eyebrow">A rating anyone can check</p>
+        <h2>The rating goes on the label. <em>The proof goes with it.</em></h2>
+        <ol class="steps">
+          <li><b>Scan.</b> The care label carries the rating and a QR code to the garment passport.</li>
+          <li><b>Rebuild.</b> The phone downloads the knitting program and rebuilds its loops.</li>
+          <li><b>Re-check.</b> It replays the worst-case attacks and confirms the certificate, on the device.</li>
+        </ol>
+        <p class="body">A brand, a repairer or a buyer can verify the rating without taking anyone's word for it. Each passport states exactly what the guarantee covers.</p>
+      </div>
+      <figure class="shot">
+        <img src="assets/img/scene-7.webp" alt="A care-label mock-up reading Ladder rating ≤ 1 cm with a QR code, beside a phone running the real garment passport, which shows 'Verified on this device'." width="1600" height="900" loading="lazy">
+        <figcaption>Label mock-up. The phone shows the real passport verifying the compiled program.</figcaption>
+      </figure>
+    </section>
+
+    <!-- REPAIR -->
+    <section id="repair" class="scene split reverse" data-title="Locate and repair">
+      <div>
+        <p class="eyebrow">Locate · repair · recover</p>
+        <h2>If a snag happens, <em>the repair can be planned.</em></h2>
+        <p class="body">The damage simulator shows which loops were released and lists those to re-form, column by column. How repairers best restore barrier loops is one of the first things to test.</p>
+        <p class="body">The sleeve stays one continuous yarn, seamless, with a deliberate route to unravel it at end of life. The certificate checks that too.</p>
+      </div>
+      <figure class="shot">
+        <img src="assets/img/repair.webp" alt="RUNSAFE Studio damage simulator: one released loop, 9 loops unravelled, the worst possible for one fault, with a repair plan listing 9 loops to re-form." width="1600" height="900" loading="lazy">
+        <figcaption>Damage simulator and repair plan · one released loop, 9 loops to re-form</figcaption>
+      </figure>
+    </section>
+
+    <!-- SCALE -->
+    <section id="scale" class="scene" data-title="Where it goes">
+      <p class="eyebrow">Where a proved rating goes</p>
+      <h2>From one sleeve <em>to a durability standard.</em></h2>
+      <div class="horizon-grid">
+        <article class="card horizon">
+          <span class="kicker">Now · fine knitwear</span>
+          <h3>Flat-bed knitwear in smooth yarns</h3>
+          <p>Sleeves, cuffs and fine tops, where ladders run easily. The Studio compiles and certifies these designs today.</p>
+          <strong>≈ 37%</strong>
+          <span class="hint">of clothing-disposal reasons are quality failures such as tears and holes · Laitala &amp; Klepp</span>
+        </article>
+        <article class="card horizon">
+          <span class="kicker">Next · hosiery</span>
+          <h3>Tights, the classic ladder</h3>
+          <p>Circular hosiery machines need their own barrier construction and compiler: a research target for the next stage.</p>
+          <strong>130 M</strong>
+          <span class="hint">pairs of tights sold a year in France; 72% of women say a pair lasts about six wears · HOP survey, reported May 2018</span>
+        </article>
+        <article class="card horizon">
+          <span class="kicker">Then · the label</span>
+          <h3>A rating in the product passport</h3>
+          <p>EU ecodesign rules will bring digital product passports to textiles. A damage rating anyone can re-check fits there.</p>
+          <strong>1 QR</strong>
+          <span class="hint">on the care label opens the passport and re-checks the proof on the reader's phone</span>
+        </article>
+      </div>
+      <div class="impact card dark">
+        <div class="impact-head">
+          <span class="kicker light">The climate case · worked wool example</span>
+          <h3>Fewer replacements. Less new production.</h3>
+        </div>
+        <div class="impact-grid">
+          <div><strong>+31%</strong><span>counted machine passes for the sleeve, against plain knitting of equal loop count</span></div>
+          <div><strong>0.15 kg</strong><span>CO₂e added per garment, from knitting energy, in this worked example</span></div>
+          <div><strong>0.7%</strong><span>of discards prevented repays the added knitting footprint</span></div>
+          <div><strong>≈ 950 t</strong><span>CO₂e avoided per million garments a year, if ladders end 1 in 10 and barriers prevent half of those (scenario)</span></div>
+        </div>
+        <p class="hint light">Worked example: 0.4 kg wool jumper, 21.93 kg CO₂e virgin baseline (Hester et al., <i>Textiles</i>, 2026), 2.39 kWh/kg knitting, 0.5 kg CO₂e/kWh. A scenario, not a measurement: the inputs are what the pilots will measure.</p>
+      </div>
+    </section>
+
+    <!-- EVIDENCE -->
+    <section id="evidence" class="scene" data-title="What is proved">
+      <p class="eyebrow">An auditor's product</p>
+      <h2>What is proved, what is counted, <em>what comes next.</em></h2>
+      <p class="sub">RUNSAFE separates what is proved, what is measured and what is assumed. So does this page.</p>
+      <div class="card table-card">
+        <div class="table-scroll">
+          <table class="data evidence">
+            <thead><tr><th>Claim</th><th>Status</th><th>How it is established</th></tr></thead>
+            <tbody>
+              <tr><td>Worst case for <i>k</i> dropped loops, fewer than the width, at every circumference, down and up</td><td><span class="chip proved">Proved</span></td><td>Written theorems in a declared loop-release model; exhaustive computer checks on small tubes; attaining attacks replayed on tubes of 32, 72 and 160 stitches</td></tr>
+              <tr><td>The bound survives compilation into the machine program</td><td><span class="chip proved">Proved</span></td><td>Proof covering the loops the compiler adds; independently implemented reader; Carnegie Mellon's knitout simulator accepts the programs</td></tr>
+              <tr><td>1.31× carriage passes for a barrier every 8 rows</td><td><span class="chip counted">Counted</span></td><td>Passes counted on the emitted program for the 160-stitch sleeve</td></tr>
+              <tr><td>≤ 1 cm for one snag</td><td><span class="chip counted">From the gauge</span></td><td>9 loops at the Studio's fine-knit default of 9 courses per cm</td></tr>
+              <tr><td>Shima Seiki export</td><td><span class="chip counted">Works</span></td><td>Machine variants convert to Shima Seiki DAT files with an open converter</td></tr>
+              <tr><td>Climate benefit</td><td><span class="chip modelled">Modelled</span></td><td>Service-life model with sourced defaults; each input flagged for measurement</td></tr>
+              <tr><td>Ladder length after knitting, washing and wear; repair time and cost</td><td><span class="chip next">Next</span></td><td>Physical samples and wear trials with a knitting laboratory</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="body narrow-text">Existing structures already resist runs: hosiery run-stops through tuck courses and friction, warp knits by structure, interlock by doubling the loops. RUNSAFE adds a stated worst-case bound for any number of faults, a compiler that keeps it in the knitting instructions, and a certificate anyone can re-check.</p>
+    </section>
+
+    <!-- NEXT -->
+    <section id="next" class="scene split" data-title="Next steps">
+      <div>
+        <p class="eyebrow">Three challenges · the support needed</p>
+        <h2>Small faults. <em>More life in every knit.</em></h2>
+        <ol class="challenges">
+          <li><span>01</span><div><b>Physical validation.</b> A knitting laboratory to test the predicted damage limit after knitting, washing and wear.</div></li>
+          <li><span>02</span><div><b>Practical repair.</b> Repair specialists to establish how barrier loops can be restored, and at what cost.</div></li>
+          <li><span>03</span><div><b>Adoption.</b> A brand partner to judge appearance, production time and willingness to pay.</div></li>
+        </ol>
+        <div class="card partner">
+          <h3>Work with RUNSAFE</h3>
+          <p>Knitting laboratories and technical centres with V-bed machines, fine-knitwear and technical-knit brands, repair services and unravelling operators: the next step is turning a checked design into knitwear.</p>
+          <a class="btn primary" href="mailto:marcdonovici@gmail.com?subject=RUNSAFE">marcdonovici@gmail.com</a>
+        </div>
+      </div>
+      <figure class="shot">
+        <img src="assets/img/close.webp" alt="Closing scene of the RUNSAFE film: the three challenges beside the live compiled sleeve." width="1600" height="900" loading="lazy">
+      </figure>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="scene" data-title="About">
+      <div class="about card">
+        <div class="avatar" aria-hidden="true">MD</div>
+        <div>
+          <p class="eyebrow">Marc Donovici · IT auditor, Strasbourg</p>
+          <h2 class="small-h">Checking whether claims hold up.</h2>
+          <p class="body">RUNSAFE began with an auditor's question: could knitwear carry a rating the way software carries a guarantee, a stated limit for every allowed pattern of dropped loops, checkable by anyone? Knitting machines already run programs, so the question became mathematical. Five months of part-time research produced new theorems, a knitting-program compiler, verification tools and the Studio.</p>
+          <p class="body">Marc trained in mathematics and economics in a French preparatory class, holds master's degrees in management and finance from Grenoble École de Management, and works as an IT auditor. In competitions: third of more than 850 teams in Google's MedGemma Impact Challenge, and a finalist at the European Patent Office CodeFest 2026.</p>
+          <div class="cta-row">
+            <a class="btn outline" href="https://www.linkedin.com/in/marc-donovici" rel="noopener">LinkedIn</a>
+            <a class="btn outline" href="https://github.com/Marc-Dvci" rel="noopener">GitHub</a>
+            <a class="btn outline" href="mailto:marcdonovici@gmail.com?subject=RUNSAFE">Email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOURCES -->
+    <section id="sources" class="scene sources" data-title="Sources">
+      <p class="eyebrow">Sources and scope</p>
+      <ul>
+        <li>719,129,210,529,640,888,003,430,838,628,432 is the sum of C(18,560, <i>k</i>) for <i>k</i> = 1 to 9: the ways to choose 1 to 9 of the sleeve's 18,560 loops.</li>
+        <li>116 / 9 loops, 405, 297 and 1.31× / 1.47× come from the compiled sample sleeves (160 stitches around). Other spacings in the rating table are predicted from theorem L1 and the counted rule of six extra passes per barrier.</li>
+        <li>859,689 exhaustive fault sets: the reverse-direction checks on the emitted tube programs, alongside exact replays of the worst-case attacks on tubes up to 320 stitches around.</li>
+        <li>K. Laitala &amp; I. G. Klepp, review of clothing-disposal reasons across 17 studies (Consumption Research Norway, OsloMet, 2022): intrinsic quality ≈ 37% of reasons.</li>
+        <li>HOP (Halte à l'Obsolescence Programmée) survey of more than 3,000 women, reported by Connexion France, 15 May 2018: more than 130 million pairs of tights sold a year in France; 72% say their tights last about six uses.</li>
+        <li>European Commission press release IP/23/3635, July 2023: 5.2 million tonnes of clothing and footwear waste a year in the EU. Digital product passports: Regulation (EU) 2024/1781 (ESPR).</li>
+        <li>Hester et al., <i>Textiles</i> 6(1):19, 2026: virgin wool jumper 21.93 kg CO₂e against 0.89 kg from unravelled yarn.</li>
+        <li>All damage bounds hold in the declared loop-release model. Physical samples, wear tests and repair trials are the next step and have not been run.</li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <div class="brand small"><img src="assets/favicon.svg" alt="" width="24" height="24"><span>RUNSAFE</span><small>Studio</small></div>
+      <p>Keep small knitting faults repairable. Keep garments in use.</p>
+      <p class="hint">© 2026 Marc Donovici</p>
+    </footer>
+  </main>
+</div>
+
+<div class="chapter-strip" aria-hidden="true">
+  <div class="strip-brand">RUNSAFE<small>Studio</small></div>
+  <span class="strip-count" id="strip-count">01 / 12</span>
+  <span class="strip-title" id="strip-title">A sweater has no damage rating</span>
+  <span class="spacer"></span>
+  <div class="strip-dashes" id="strip-dashes"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
