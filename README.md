@@ -21,7 +21,3 @@ Open http://127.0.0.1:8000/.
 | `app.js` | Navigation, film chapters and the rating tool |
 | `assets/img/` | Frames from RUNSAFE Studio |
 | `assets/video/` | Demo film, captions and chapters |
-
-## Contact
-
-Marc Donovici · marcdonovici@gmail.com
