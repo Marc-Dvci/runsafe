@@ -41,7 +41,7 @@
     <a href="#demo"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9v6l5-3z"/></svg><span>Demo film</span></a>
     <a href="#problem"><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2 18a2 2 0 0 0 1.7 3h16.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span>The problem</span></a>
     <a href="#mechanism"><svg viewBox="0 0 24 24"><path d="M4 7c3 0 3 5 6 5s3-5 6-5 3 5 4 5M4 17c3 0 3-5 6-5s3 5 6 5 3-5 4-5"/></svg><span>The barrier course</span></a>
-    <a href="#proof"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.2 8.4-7 10-3.8-1.6-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><span>Proved, not sampled</span></a>
+    <a href="#proof"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.2 8.4-7 10-3.8-1.6-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><span>The mathematics</span></a>
     <a href="proofs.html" class="ext"><svg viewBox="0 0 24 24"><path d="M4 4h11l5 5v11H4z"/><path d="M15 4v5h5M8 13h8M8 17h5"/></svg><span>Read the proofs</span></a>
     <div class="section">Studio</div>
     <a href="#rate"><svg viewBox="0 0 24 24"><path d="M4 18a8 8 0 1 1 16 0"/><path d="M12 18l4-5"/></svg><span>Design from a rating</span></a>
@@ -62,7 +62,7 @@
     <!-- HOME -->
     <section id="home" class="scene hero" data-title="A sweater has no damage rating">
       <p class="eyebrow">What does one snag cost?</p>
-      <h1>Your phone has a water rating.<br>Your sunscreen has an SPF.<br><em>Your sweater has nothing.</em></h1>
+      <h1>Your phone has a water rating.<br>Your sunscreen has an SPF.<br>Your sweater has nothing.</h1>
       <div class="rating-row">
         <div class="rating-card">
           <svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 5h2"/><path d="M12 11c1.5 2 2 3 2 4a2 2 0 0 1-4 0c0-1 .5-2 2-4z"/></svg>
@@ -92,7 +92,7 @@
       <div class="stat-band">
         <div><strong><span class="red">116</span> → <span class="green">9</span></strong><span>loops released by one dropped stitch, plain sleeve against RUNSAFE sleeve</span></div>
         <div><strong>1.31×</strong><span>machine passes against plain knitting, counted on the compiled program</span></div>
-        <div><strong>33 digits</strong><span>ways up to nine stitches can drop from this sleeve. The proof covers every one.</span></div>
+        <div><strong>33 digits</strong><span>ways up to nine stitches can drop from this sleeve, all covered by the proof</span></div>
         <div><strong>859,689</strong><span>exhaustive fault sets checked on the emitted programs, all within the bound</span></div>
       </div>
     </section>
@@ -100,7 +100,7 @@
     <!-- DEMO -->
     <section id="demo" class="scene" data-title="Demo film">
       <p class="eyebrow">The demo · 10 chapters · 4:45</p>
-      <h2>See it in the Studio.</h2>
+      <h2>See it in the Studio</h2>
       <p class="sub">A narrated walkthrough recorded from RUNSAFE Studio and its presentation scenes, running on the compiled sleeve designs.</p>
       <div class="player card">
         <div class="player-video">
@@ -118,7 +118,7 @@
     <section id="problem" class="scene split" data-title="The problem">
       <div>
         <p class="eyebrow">The problem</p>
-        <h2>One snag at the elbow. <em>A top in the bin.</em></h2>
+        <h2>One snag can ladder down a whole sleeve</h2>
         <p class="body">In ordinary knitting each loop is held by the loop above it. Drop one, and the whole column can unravel. In fine knitwear and smooth yarns such as silk, fine cotton and polyamide, a snag at the elbow of a plain sleeve can ladder to the cuff, and an almost intact garment can end up thrown away.</p>
         <p class="body">Run-stops exist, but they are validated on samples. Nobody states a worst case for a whole garment, and nobody can check one.</p>
         <div class="mini-stats">
@@ -136,7 +136,7 @@
     <section id="mechanism" class="scene split reverse" data-title="The barrier course">
       <div>
         <p class="eyebrow">The solution</p>
-        <h2>Every 8 rows, <em>a barrier course.</em></h2>
+        <h2>A barrier course every 8 rows stops the ladder</h2>
         <p class="body">Each loop of the barrier course is held by two loops instead of one. A ladder that reaches it stops, because of how the loops hold each other. The proof does not count on friction, which matters most in smooth yarns where friction helps least.</p>
         <div class="card bound-card">
           <span class="hint">Model upper bound · <i>k</i> faults, fewer than the width</span>
@@ -154,10 +154,10 @@
     </section>
 
     <!-- PROOF -->
-    <section id="proof" class="scene" data-title="Proved, not sampled">
+    <section id="proof" class="scene" data-title="The mathematics">
       <p class="eyebrow">Original mathematics · proved and checked for this project</p>
       <div class="proof-head">
-        <h2>A damage limit that survives <em>the knitting machine.</em></h2>
+        <h2>The limit is proved for every fault pattern</h2>
         <div class="count-card">
           <span>Ways up to nine stitches can drop in this one sleeve</span>
           <strong>719,129,210,529,640,888,003,430,838,628,432</strong>
@@ -168,27 +168,27 @@
         <article class="card proof-card">
           <span class="kicker">01 · The fabric</span>
           <div class="formula big"><i>B</i><sub>k</sub> = <i>k</i>(<i>k</i> + 1) / 2</div>
-          <h3>The worst case for <i>k</i> dropped loops.</h3>
+          <h3>The worst case for <i>k</i> dropped loops</h3>
           <p>Barrier-to-barrier segments that can open. The same at every circumference, from a 72-stitch cuff to a 320-stitch body, for ladders running down or up.</p>
           <div class="kgrid small"><div><i>k = 1</i><b>1</b></div><div><i>k = 2</i><b>3</b></div><div><i>k = 3</i><b>6</b></div><div><i>k = 9</i><b>45</b></div></div>
         </article>
         <article class="card proof-card">
           <span class="kicker">02 · The machine program</span>
           <div class="formula big"><i>D</i><sub>k</sub> ≤ (<i>s</i> + <i>d</i> − 1) <i>B</i><sub>k</sub></div>
-          <h3>The bound survives compilation.</h3>
+          <h3>The bound survives compilation</h3>
           <p>Compiling adds loops the design never drew. Faults in those extra loops are counted too.</p>
           <div class="kgrid small"><div><i>k = 1</i><b>9</b></div><div><i>k = 2</i><b>27</b></div><div><i>k = 3</i><b>54</b></div><div><i>k = 9</i><b>405</b></div></div>
         </article>
         <article class="card proof-card">
           <span class="kicker">03 · The cost</span>
           <div class="formula big cost"><s>155×</s> <span class="arrow">→</span> 1.31×</div>
-          <h3>Carriage passes against plain knitting.</h3>
+          <h3>Carriage passes against plain knitting</h3>
           <p>The first optimal designs routed loops across the needle bed. The knittable barrier adds six passes per barrier, counted on the emitted program.</p>
           <div class="kgrid small two"><div><i>barrier every 8 rows</i><b>9 loops · 1.31×</b></div><div><i>barrier every 16 rows</i><b>17 loops · 1.16×</b></div></div>
         </article>
       </div>
       <div class="check-band">
-        <b>Checked, not only claimed</b>
+        <b>Independent checks</b>
         <span>✓ Carnegie Mellon's open-source knitout simulator, unmodified</span>
         <span>✓ 859,689 exhaustive fault sets, all within the bound</span>
         <span>✓ Independently implemented program reader</span>
@@ -203,7 +203,7 @@
     <!-- RATE -->
     <section id="rate" class="scene" data-title="Design from a rating">
       <p class="eyebrow">In the Studio · try it here</p>
-      <h2>Design from a rating.</h2>
+      <h2>Design from a rating</h2>
       <p class="sub">A designer no longer draws barriers. State the rating the garment must carry and the extra knitting you can afford; RUNSAFE returns the cheapest proved construction in its library. This is the Studio's logic for the 160-stitch seamless sleeve, running in your browser.</p>
       <div class="app-frame">
         <div class="rate-grid">
@@ -253,8 +253,8 @@
     <!-- PASSPORT -->
     <section id="passport" class="scene split" data-title="Garment passport">
       <div>
-        <p class="eyebrow">A rating anyone can check</p>
-        <h2>The rating goes on the label. <em>The proof goes with it.</em></h2>
+        <p class="eyebrow">Garment passport</p>
+        <h2>Anyone can check the rating</h2>
         <ol class="steps">
           <li><b>Scan.</b> The care label carries the rating and a QR code to the garment passport.</li>
           <li><b>Rebuild.</b> The phone downloads the knitting program and rebuilds its loops.</li>
@@ -271,10 +271,10 @@
     <!-- REPAIR -->
     <section id="repair" class="scene split reverse" data-title="Locate and repair">
       <div>
-        <p class="eyebrow">Locate · repair · recover</p>
-        <h2>If a snag happens, <em>the repair can be planned.</em></h2>
+        <p class="eyebrow">Repair</p>
+        <h2>Locate the damage and plan the repair</h2>
         <p class="body">The damage simulator shows which loops were released and lists those to re-form, column by column. How repairers best restore barrier loops is one of the first things to test.</p>
-        <p class="body">The sleeve stays one continuous yarn, seamless, with a deliberate route to unravel it at end of life. The certificate checks that too.</p>
+        <p class="body">The certificate also checks that the sleeve is one continuous, seamless yarn, with a deliberate route to unravel it at end of life.</p>
       </div>
       <figure class="shot">
         <img src="assets/img/repair.webp" alt="RUNSAFE Studio damage simulator: one released loop, 9 loops unravelled, the worst possible for one fault, with a repair plan listing 9 loops to re-form." width="1600" height="900" loading="lazy">
@@ -284,8 +284,8 @@
 
     <!-- SCALE -->
     <section id="scale" class="scene" data-title="Where it goes">
-      <p class="eyebrow">Where a proved rating goes</p>
-      <h2>From one sleeve <em>to a durability standard.</em></h2>
+      <p class="eyebrow">Scale</p>
+      <h2>Where the rating goes next</h2>
       <div class="horizon-grid">
         <article class="card horizon">
           <span class="kicker">Now · fine knitwear</span>
@@ -312,7 +312,7 @@
       <div class="impact card dark">
         <div class="impact-head">
           <span class="kicker light">The climate case · worked wool example</span>
-          <h3>Fewer replacements. Less new production.</h3>
+          <h3>Preventing 0.7% of discards repays the extra knitting</h3>
         </div>
         <div class="impact-grid">
           <div><strong>+31%</strong><span>counted machine passes for the sleeve, against plain knitting of equal loop count</span></div>
@@ -320,15 +320,15 @@
           <div><strong>0.7%</strong><span>of discards prevented repays the added knitting footprint</span></div>
           <div><strong>≈ 950 t</strong><span>CO₂e avoided per million garments a year, if ladders end 1 in 10 and barriers prevent half of those (scenario)</span></div>
         </div>
-        <p class="hint light">Worked example: 0.4 kg wool jumper, 21.93 kg CO₂e virgin baseline (Hester et al., <i>Textiles</i>, 2026), 2.39 kWh/kg knitting, 0.5 kg CO₂e/kWh. A scenario, not a measurement: the inputs are what the pilots will measure.</p>
+        <p class="hint light">Worked example: 0.4 kg wool jumper, 21.93 kg CO₂e virgin baseline (Hester et al., <i>Textiles</i>, 2026), 2.39 kWh/kg knitting, 0.5 kg CO₂e/kWh. This is a scenario; the pilots will measure its inputs.</p>
       </div>
     </section>
 
     <!-- EVIDENCE -->
     <section id="evidence" class="scene" data-title="What is proved">
-      <p class="eyebrow">An auditor's product</p>
-      <h2>What is proved, what is counted, <em>what comes next.</em></h2>
-      <p class="sub">RUNSAFE separates what is proved, what is measured and what is assumed. So does this page.</p>
+      <p class="eyebrow">Evidence</p>
+      <h2>What is proved, counted or still to test</h2>
+      <p class="sub">Each claim on this site, with how it is established.</p>
       <div class="card table-card">
         <div class="table-scroll">
           <table class="data evidence">
@@ -351,8 +351,8 @@
     <!-- NEXT -->
     <section id="next" class="scene split" data-title="Next steps">
       <div>
-        <p class="eyebrow">Three challenges · the support needed</p>
-        <h2>Small faults. <em>More life in every knit.</em></h2>
+        <p class="eyebrow">Next steps</p>
+        <h2>Three challenges for the next stage</h2>
         <ol class="challenges">
           <li><span>01</span><div><b>Physical validation.</b> A knitting laboratory to test the predicted damage limit after knitting, washing and wear.</div></li>
           <li><span>02</span><div><b>Practical repair.</b> Repair specialists to establish how barrier loops can be restored, and at what cost.</div></li>
@@ -361,7 +361,7 @@
         <div class="card partner">
           <h3>Work with RUNSAFE</h3>
           <p>Knitting laboratories and technical centres with V-bed machines, fine-knitwear and technical-knit brands, repair services and unravelling operators: the next step is turning a checked design into knitwear.</p>
-          <a class="btn primary" href="mailto:marcdonovici@gmail.com?subject=RUNSAFE">marcdonovici@gmail.com</a>
+          <a class="btn primary" href="https://www.linkedin.com/in/marc-donovici" rel="noopener">Contact on LinkedIn</a>
         </div>
       </div>
       <figure class="shot">
@@ -374,14 +374,13 @@
       <div class="about card">
         <div class="avatar" aria-hidden="true">MD</div>
         <div>
-          <p class="eyebrow">Marc Donovici · IT auditor, Strasbourg</p>
-          <h2 class="small-h">Checking whether claims hold up.</h2>
+          <p class="eyebrow">About · IT auditor, Strasbourg</p>
+          <h2 class="small-h">Marc Donovici</h2>
           <p class="body">RUNSAFE began with an auditor's question: could knitwear carry a rating the way software carries a guarantee, a stated limit for every allowed pattern of dropped loops, checkable by anyone? Knitting machines already run programs, so the question became mathematical. Five months of part-time research produced new theorems, a knitting-program compiler, verification tools and the Studio.</p>
           <p class="body">Marc trained in mathematics and economics in a French preparatory class, holds master's degrees in management and finance from Grenoble École de Management, and works as an IT auditor. In competitions: third of more than 850 teams in Google's MedGemma Impact Challenge, and a finalist at the European Patent Office CodeFest 2026.</p>
           <div class="cta-row">
             <a class="btn outline" href="https://www.linkedin.com/in/marc-donovici" rel="noopener">LinkedIn</a>
             <a class="btn outline" href="https://github.com/Marc-Dvci" rel="noopener">GitHub</a>
-            <a class="btn outline" href="mailto:marcdonovici@gmail.com?subject=RUNSAFE">Email</a>
           </div>
         </div>
       </div>
@@ -404,7 +403,7 @@
 
     <footer class="footer">
       <div class="brand small"><img src="assets/favicon.svg" alt="" width="24" height="24"><span>RUNSAFE</span><small>Studio</small></div>
-      <p>Keep small knitting faults repairable. Keep garments in use.</p>
+      <p>A proved damage rating for knitwear.</p>
       <p class="hint">© 2026 Marc Donovici</p>
     </footer>
   </main>
