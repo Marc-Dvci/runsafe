@@ -42,6 +42,7 @@
     <a href="#problem"><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2 18a2 2 0 0 0 1.7 3h16.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span>The problem</span></a>
     <a href="#mechanism"><svg viewBox="0 0 24 24"><path d="M4 7c3 0 3 5 6 5s3-5 6-5 3 5 4 5M4 17c3 0 3-5 6-5s3 5 6 5 3-5 4-5"/></svg><span>The barrier course</span></a>
     <a href="#proof"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.2 8.4-7 10-3.8-1.6-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><span>Proved, not sampled</span></a>
+    <a href="proofs.html" class="ext"><svg viewBox="0 0 24 24"><path d="M4 4h11l5 5v11H4z"/><path d="M15 4v5h5M8 13h8M8 17h5"/></svg><span>Read the proofs</span></a>
     <div class="section">Studio</div>
     <a href="#rate"><svg viewBox="0 0 24 24"><path d="M4 18a8 8 0 1 1 16 0"/><path d="M12 18l4-5"/></svg><span>Design from a rating</span></a>
     <a href="#passport"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 18h2M18 14h2"/></svg><span>Garment passport</span></a>
@@ -193,6 +194,10 @@
         <span>✓ Independently implemented program reader</span>
         <span>✓ Verifier in the browser</span>
       </div>
+      <div class="cta-row">
+        <a class="btn primary big" href="proofs.html">Read the proofs</a>
+        <a class="btn outline big" href="proofs.html#checks">Run the checks on your device</a>
+      </div>
     </section>
 
     <!-- RATE -->
@@ -236,7 +241,7 @@
               <tbody id="t-body"></tbody>
             </table>
           </div>
-          <p class="hint foot">Compiled designs show their verified worst cases and the passes counted on the emitted program. Other spacings use the proved bound (s + 1 loops for one snag, 45·(s + 1) for nine) and the counted rule of six extra passes per barrier. Bounds hold in the declared loop-release model; physical trials are the next step.</p>
+          <p class="hint foot">Compiled designs show their verified worst cases and the passes counted on the emitted program. Other spacings use the proved bound of <a href="proofs.html#t1">Theorem 1</a> (s + 1 loops for one snag, 45·(s + 1) for nine) and the counted rule of six extra passes per barrier. Bounds hold in the declared loop-release model; physical trials are the next step.</p>
         </div>
       </div>
       <figure class="shot wide">
@@ -387,7 +392,7 @@
       <p class="eyebrow">Sources and scope</p>
       <ul>
         <li>719,129,210,529,640,888,003,430,838,628,432 is the sum of C(18,560, <i>k</i>) for <i>k</i> = 1 to 9: the ways to choose 1 to 9 of the sleeve's 18,560 loops.</li>
-        <li>116 / 9 loops, 405, 297 and 1.31× / 1.47× come from the compiled sample sleeves (160 stitches around). Other spacings in the rating table are predicted from theorem L1 and the counted rule of six extra passes per barrier.</li>
+        <li>116 / 9 loops, 405, 297 and 1.31× / 1.47× come from the compiled sample sleeves (160 stitches around). Other spacings in the rating table are predicted from Theorem 1 and the counted rule of six extra passes per barrier. Definitions, theorems and complete proofs: <a href="proofs.html">the proofs page</a>.</li>
         <li>859,689 exhaustive fault sets: the reverse-direction checks on the emitted tube programs, alongside exact replays of the worst-case attacks on tubes up to 320 stitches around.</li>
         <li>K. Laitala &amp; I. G. Klepp, review of clothing-disposal reasons across 17 studies (Consumption Research Norway, OsloMet, 2022): intrinsic quality ≈ 37% of reasons.</li>
         <li>HOP (Halte à l'Obsolescence Programmée) survey of more than 3,000 women, reported by Connexion France, 15 May 2018: more than 130 million pairs of tights sold a year in France; 72% say their tights last about six uses.</li>

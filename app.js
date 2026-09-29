@@ -142,7 +142,7 @@
         <td class="num ${k.one ? '' : 'bad'}">${fmt(c.one)} loops · ${cm(c.one)} cm</td>
         <td class="num ${k.nine ? '' : 'bad'}">${fmt(c.nine)}</td>
         <td class="num ${k.cost ? '' : 'bad'}">${fmt(c.ratio, 2)}×</td>
-        <td class="hint">${c.compiled ? 'compiled, verified' : 'theorem L1, predicted passes'}</td>
+        <td class="hint">${c.compiled ? 'compiled, verified' : 'Theorem 1, predicted passes'}</td>
         <td>${ok ? (c === best ? '<b class="good">✓ cheapest</b>' : '✓') : `<span class="hint">✗ ${fails}</span>`}</td>`;
       tr.firstElementChild.textContent = c.name;
       body.appendChild(tr);

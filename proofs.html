@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RUNSAFE · The proofs</title>
+<meta name="description" content="The mathematics behind RUNSAFE's damage rating for knitwear: definitions, theorems and complete proofs, with checks you can run in your browser.">
+<meta property="og:title" content="RUNSAFE · The proofs">
+<meta property="og:description" content="Definitions, theorems and complete proofs of RUNSAFE's damage rating for knitwear, with checks you can run in your browser.">
+<meta property="og:image" content="assets/img/maths.webp">
+<meta name="theme-color" content="#17302a">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preload" href="assets/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="proofs/proofs.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+  onload="renderMathInElement(document.querySelector('main'), {delimiters: [{left: '\\[', right: '\\]', display: true}, {left: '\\(', right: '\\)', display: false}], throwOnError: false})"></script>
+</head>
+<body class="proofs-page">
+
+<header class="topbar">
+  <button class="icon-btn menu-btn" aria-label="Open navigation" aria-expanded="false" data-menu>
+    <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+  </button>
+  <a class="brand" href="index.html" aria-label="RUNSAFE home">
+    <img src="assets/favicon.svg" alt="" width="36" height="36">
+    <span>RUNSAFE</span><small>Proofs</small>
+  </a>
+  <div class="tagline-pill">
+    <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.2 8.4-7 10-3.8-1.6-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+    <span>Definitions, theorems, complete proofs, and checks you can run</span>
+  </div>
+  <span class="spacer"></span>
+  <a class="btn outline" href="index.html"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span>Back to the site</span></a>
+  <a class="btn primary" href="#checks"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg><span>Run the checks</span></a>
+</header>
+
+<div class="shell">
+  <nav class="nav" aria-label="Sections">
+    <a href="#top" class="active"><span class="num">·</span><span>Overview</span></a>
+    <div class="section">Definitions</div>
+    <a href="#model"><span class="num">1</span><span>The release model</span></a>
+    <a href="#construction"><span class="num">2</span><span>The barrier tube</span></a>
+    <a href="#cells"><span class="num">3</span><span>Cells and rows</span></a>
+    <div class="section">Results</div>
+    <a href="#t1"><span class="num">4</span><span>Theorem 1 · the fabric</span></a>
+    <a href="#t2"><span class="num">5</span><span>Theorem 2 · the program</span></a>
+    <a href="#t3"><span class="num">6</span><span>Theorem 3 · ladders up</span></a>
+    <a href="#sleeve"><span class="num">7</span><span>The 160-stitch sleeve</span></a>
+    <a href="#t4"><span class="num">8</span><span>Theorem 4 · opening</span></a>
+    <a href="#t5"><span class="num">9</span><span>Theorem 5 · flat panels</span></a>
+    <a href="#t6"><span class="num">10</span><span>Theorem 6 · staggered</span></a>
+    <div class="section">Evidence</div>
+    <a href="#cost"><span class="num">11</span><span>Machine cost</span></a>
+    <a href="#checks"><span class="num">12</span><span>Checks</span></a>
+    <a href="#scope"><span class="num">13</span><span>Scope</span></a>
+    <a href="#refs"><span class="num">14</span><span>References</span></a>
+  </nav>
+  <button class="nav-dismiss" aria-label="Close navigation" data-dismiss></button>
+
+  <main>
+  <article class="paper">
+
+    <!-- OVERVIEW -->
+    <section id="top" class="scene" data-title="Overview">
+      <p class="eyebrow">RUNSAFE · the mathematics</p>
+      <h1 class="paper-title">A damage limit for knitted fabric, <em>proved and kept in the machine program.</em></h1>
+      <p class="sub">This page states the model, the construction and every theorem behind RUNSAFE's ladder rating, with complete proofs. The proofs use counting and induction only. Section 12 lists the independent checks and runs a checker in your browser.</p>
+
+      <div class="card summary">
+        <h2 class="h-small">The results in one table</h2>
+        <div class="table-scroll">
+        <table class="data">
+          <thead><tr><th>Result</th><th>Statement</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><a href="#t1">Theorem 1</a></td><td>With a barrier between every two rows of cells, \(k\) dropped cells release at most \(k(k+1)/2\) cells, at every width \(W > k\) and every height. The bound is attained.</td><td><span class="chip proved">Proof</span></td></tr>
+            <tr><td><a href="#t2">Theorem 2</a></td><td>In the knitting program, where every loop can fail, including the loops the barrier adds, \(k\) dropped loops release at most \((s+1)\,k(k+1)/2\) loops. Equality holds once the tube has \(k+1\) blocks.</td><td><span class="chip proved">Proof</span></td></tr>
+            <tr><td><a href="#t3">Theorem 3</a></td><td>Ladders running up the fabric have exactly the same worst case.</td><td><span class="chip proved">Proof</span></td></tr>
+            <tr><td><a href="#sleeve">Corollary</a></td><td>The 160-stitch sleeve with a barrier every 8 courses: one dropped loop releases at most 9 loops, nine release at most 405.</td><td><span class="chip proved">Proof</span></td></tr>
+            <tr><td><a href="#t4">Theorem 4</a></td><td>Dropping the \(W\) loops of the working edge releases every loop. Fewer than \(W\) dropped loops never do.</td><td><span class="chip proved">Proof</span></td></tr>
+            <tr><td><a href="#t5">Theorem 5</a></td><td>A flat panel keeps the tube's bound exactly when its ports form one cycle through all columns.</td><td><span class="chip proved">Proof</span></td></tr>
+            <tr><td><a href="#t6">Theorem 6</a></td><td>Staggered barriers: the worst case on any tube wider than \(A\,k\) is at most the worst case on the infinite line, which is computed exactly. The values are attained on the sample tubes.</td><td><span class="chip counted">Proof + exact computation</span></td></tr>
+            <tr><td><a href="#cost">Machine cost</a></td><td>A barrier adds 6 carriage passes: 1.31 times plain knitting for the sleeve.</td><td><span class="chip counted">Counted</span></td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+      <p class="note">Everything below holds in the declared release model of section 1. Section 13 lists what the model leaves out. Physical samples have not been knitted or tested yet.</p>
+    </section>
+
+    <!-- 1 MODEL -->
+    <section id="model" class="scene" data-title="1 · The release model">
+      <p class="eyebrow">Section 1</p>
+      <h2>The release model</h2>
+
+      <p>A knitting program makes loops one at a time. Each new loop is pulled through a set of loops that already exist: a <b>knit</b> pulls it through the loops held on a needle and replaces them; a <b>split</b> pulls it through them and keeps the old loops on the opposite bed; a <b>tuck</b> or cast-on makes a loop through nothing. The semantics follow the Knitout specification [1].</p>
+
+      <div class="def"><span class="tag">Definition 1</span> <b>Capture graph.</b> The loops of a program are the vertices. Write \(u \to v\) when loop \(v\) is made through loop \(u\): \(v\) <i>holds</i> \(u\). Every arrow points from an older loop to a newer one, so the graph has no cycles. The holders of \(u\) are its out-neighbours \(\operatorname{out}(u)\); the loops \(u\) was made through are its in-neighbours \(\operatorname{in}(u)\).</div>
+
+      <div class="def"><span class="tag">Definition 2</span> <b>Release rules.</b> A <i>fault</i> is a set \(S\) of loops that are dropped. Every loop can be dropped, including loops added by the barrier.
+        <ul>
+          <li><b>Downward rule</b> (a ladder running towards the cast-on): a loop with at least one holder is released when all of its holders are released.</li>
+          <li><b>Upward rule</b> (the mirror image): a loop made through at least one loop is released when all of the loops it was made through are released.</li>
+        </ul>
+        The <i>closure</i> \(\operatorname{cl}(S)\) is the smallest set that contains \(S\) and contains every loop the rule releases from it. The <i>damage</i> of \(S\) is \(|\operatorname{cl}(S)|\), and the <i>worst case</i> for \(k\) faults is
+        \[ D_k \;=\; \max_{|S| \le k} \,|\operatorname{cl}(S)|. \]
+      </div>
+
+      <p>The downward rule is the ladder: a loop stays in the fabric while any loop still holds it, and runs once every holder is gone. For the knit, split and tuck operations used here, it matches the drop and ladder rewrites of Hurtig et al. [2]: removing a knit exposes the loops it consumed, and a loop captured by several new loops (a split, then a knit) is exposed only when all of them have been removed. Loops of the working edge have no holder. They are released only when they are dropped themselves.</p>
+
+      <div class="lemma"><span class="tag">Lemma 1</span> <b>Closure.</b> For either rule, \(\operatorname{cl}(S)\) exists and is unique, and
+        (a) \(S \subseteq \operatorname{cl}(S)\);
+        (b) if \(S \subseteq T\) then \(\operatorname{cl}(S) \subseteq \operatorname{cl}(T)\);
+        (c) \(\operatorname{cl}(\operatorname{cl}(S)) = \operatorname{cl}(S)\);
+        (d) under the downward rule, \(\operatorname{cl}(S)\) is found in one pass over the loops from newest to oldest, adding each loop that is in \(S\) or whose holders are all already added. Under the upward rule, the pass runs from oldest to newest.
+      </div>
+      <div class="proof"><span class="tag">Proof.</span> Call a set \(C\) <i>closed</i> if every loop whose holders are all in \(C\) (and that has at least one holder) is itself in \(C\). The whole set of loops is closed, and an intersection of closed sets is closed, so the intersection of all closed sets containing \(S\) is the smallest one: this is \(\operatorname{cl}(S)\). Then (a) is immediate. For (b), \(\operatorname{cl}(T)\) is closed and contains \(S\), so it contains \(\operatorname{cl}(S)\). For (c), \(\operatorname{cl}(S)\) is closed and contains itself. For (d), holders are newer than the loops they hold, so when the pass reaches a loop, the status of all its holders is final; the set produced is closed, contains \(S\), and each loop added is forced by the rule, so it equals \(\operatorname{cl}(S)\). The upward case is the same with the order reversed. ∎</div>
+    </section>
+
+    <!-- 2 CONSTRUCTION -->
+    <section id="construction" class="scene" data-title="2 · The barrier tube">
+      <p class="eyebrow">Section 2</p>
+      <h2>The barrier tube</h2>
+      <p>The garment is a tube of \(W\) columns (stitches around), knitted on both beds of a V-bed machine at half gauge, so that column \(c+1\) is always the physical neighbour of column \(c\), including across both folds. Columns are numbered modulo \(W\). The program has \(m\) blocks \(b = 0, \dots, m-1\). Each block has \(s\) ordinary courses. Between two blocks sits one <b>barrier course</b>.</p>
+
+      <div class="def"><span class="tag">Definition 3</span> <b>The loops.</b>
+        <ul>
+          <li><b>Chain loops</b> \(M_{b,c,l}\) for level \(l = 0,\dots,s-1\): the \(s\) loops of column \(c\) in block \(b\). Block 0 starts with a tuck cast-on.</li>
+          <li><b>Ports</b> \(P_{b,c}\) for \(b \ge 1\): the barrier course before block \(b\) splits a new loop \(P_{b,c}\) through the top loop \(M_{b-1,c,s-1}\) of every column, keeps the old loop, and carries the port to column \(\sigma_b(c)\). For the fixed barrier, \(\sigma_b(c) = c + 1\).</li>
+        </ul>
+        <b>The arrows</b> (\(u \to v\): \(v\) is made through \(u\)):
+        \[
+        \begin{aligned}
+        &M_{b,c,l} \to M_{b,c,l+1} && \text{(ordinary course, } l &lt; s-1)\\
+        &M_{b-1,c,s-1} \to M_{b,c,0} && \text{(the old loop, knitted through again)}\\
+        &M_{b-1,c,s-1} \to P_{b,c} \to M_{b,\sigma_b(c),0} && \text{(the port, knitted into the neighbour's first loop)}
+        \end{aligned}
+        \]
+        Each map \(\sigma_b\) is a permutation of the columns, so every first loop \(M_{b,c,0}\) receives exactly one port. The tube has \(N = W\,(s\,m + m - 1)\) loops.
+      </div>
+
+      <figure class="figure card">
+        <svg viewBox="0 70 760 412" role="img" aria-labelledby="fig1t">
+          <title id="fig1t">Capture graph of two blocks of the barrier tube with s = 3 and five columns. Each top loop of block 0 is held by the first loop above it and by a port, which is knitted into the next column's first loop.</title>
+          <defs>
+            <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#5d6b64"/></marker>
+            <marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1e7a45"/></marker>
+          </defs>
+          <rect x="30" y="238" width="700" height="54" rx="10" fill="#e6f4ea"/>
+          <text x="40" y="258" class="fig-label">barrier course</text>
+          <text x="40" y="416" class="fig-label">block 0</text>
+          <text x="40" y="142" class="fig-label">block 1</text>
+          <rect x="358" y="100" width="86" height="182" rx="12" fill="none" stroke="#1a73e8" stroke-width="1.6" stroke-dasharray="5 4"/>
+          <text x="358" y="90" class="fig-note blue">cell (1, 2): its s chain loops and the port knitted into them</text>
+          <g id="fig-edges"></g>
+          <g id="fig-nodes"></g>
+          <text x="429" y="474" class="fig-note" text-anchor="middle">arrow u → v: v is made through u · release runs against the arrows</text>
+        </svg>
+        <figcaption>Two blocks of the barrier tube, \(s = 3\), five columns shown. Grey circles: chain loops. Green diamonds: ports. Each top loop of block 0 has two holders: the first loop above it and its port. The port of column 4 goes around the tube to column 0.</figcaption>
+      </figure>
+
+      <p>The barrier course is a course of \(W\) ordinary loops: the ports. Per course, the barrier tube knits as many loops as plain jersey. One block with its barrier course is \(s+1\) courses tall. The emitted program uses one yarn carrier and no cuts, and moves every port with its whole course in two racked transfer passes (section 11).</p>
+    </section>
+
+    <!-- 3 CELLS -->
+    <section id="cells" class="scene" data-title="3 · Cells and rows">
+      <p class="eyebrow">Section 3</p>
+      <h2>Cells and rows</h2>
+      <p>The proofs work on a coarser picture, where each block of each column is one <b>cell</b>.</p>
+      <div class="def"><span class="tag">Definition 4</span> <b>Cells.</b> Cell \((b,c)\) is the set of loops
+        \[ L(b,c) \;=\; \{M_{b,c,0},\dots,M_{b,c,s-1}\} \;\cup\; \{P_{b,c'} : \sigma_b(c') = c\}, \]
+        its chain and, for \(b \ge 1\), the one port knitted into it. The cells partition the loops. A cell has \(s+1\) loops, or \(s\) in block 0.</div>
+      <div class="def"><span class="tag">Definition 5</span> <b>Row systems.</b> Rows \(i = 0, 1, 2, \dots\) each hold \(W\) cells, and every row \(i\) has a map \(\tau_i\) of the columns. Cell \((i+1, c)\) is released when it is seeded, or when cells \((i, c)\) and \((i, \tau_i(c))\) are both released. Writing \(R_i\) for the released cells of row \(i\) and \(S_i\) for the seeds placed in it,
+        \[ R_0 = S_0, \qquad R_{i+1} = E_i(R_i) \cup S_{i+1}, \qquad E_i(R) = \{c : c \in R \text{ and } \tau_i(c) \in R\}. \]
+        \(E_i\) is the <i>erosion</i> of row \(i\). \(B_k\) denotes the largest total \(\sum_i |R_i|\) over all placements of at most \(k\) seeds. More generally, a support \(A\) replaces the pair \(\{c, \tau_i(c)\}\) by \(\{c + a : a \in A\}\).</div>
+      <p>The recursion computes the closure row by row, since a cell of row \(i+1\) depends only on row \(i\). Section 5 shows that the barrier tube, seen through its cells, is this row system with row \(i\) = block \(m-1-i\) and \(\tau_i = \sigma_{m-1-i}\): the working edge is row 0, and rows count down towards the cast-on.</p>
+    </section>
+
+    <!-- 4 THEOREM 1 -->
+    <section id="t1" class="scene" data-title="4 · Theorem 1">
+      <p class="eyebrow">Section 4 · the fabric</p>
+      <h2>Theorem 1: the worst case does not depend on the size of the garment</h2>
+      <p>Take the cyclic row system on \(W\) columns with support \(A = \{0, 1, \dots, r\}\) in every row, \(r \ge 1\). For the barrier tube, \(r = 1\). Define, for integers \(n\),
+        \[ f_r(n) \;=\; \sum_{j \ge 0} \max(0,\, n - r j), \qquad\text{so}\qquad f_1(k) = \frac{k(k+1)}{2}. \]
+        Two facts about \(f_r\) are used below, with \(f_r(n) = 0\) for \(n \le 0\): it is nondecreasing, and \(f_r(n) = n + f_r(n - r)\) for every \(n \ge 0\) (split off the \(j = 0\) term).</p>
+
+      <div class="lemma"><span class="tag">Lemma 2</span> <b>Erosion of runs.</b> Let \(W > r\) and let \(R\) be a set of \(n\) columns, \(R\) not the whole cycle. Then \(E(R) \subseteq R\) and \(|E(R)| \le \max(0,\, n - r)\). If \(R\) is one run of \(L\) consecutive columns, \(E(R)\) is one run of \(\max(0, L - r)\) columns.</div>
+      <div class="proof"><span class="tag">Proof.</span> \(0 \in A\), so every column of \(E(R)\) lies in \(R\). Since \(R\) is not the whole cycle, it splits into maximal runs of consecutive columns, each followed by a column outside \(R\). A column \(c\) is in \(E(R)\) exactly when \(c, c+1, \dots, c+r\) all lie in \(R\), that is, when \(c\) lies in a run of length \(L\) at distance at least \(r\) from the run's last column. A run of length \(L\) therefore contributes a run of \(\max(0, L-r)\) columns. If no run is longer than \(r\), \(E(R)\) is empty. Otherwise the runs longer than \(r\) contribute \(\sum (L_j - r) \le n - r\). ∎</div>
+
+      <div class="theorem"><span class="tag">Theorem 1</span> For every \(k\) and every \(W > \max(k, r)\), and every number of rows,
+        \[ B_k \;\le\; f_r(k), \]
+        with equality whenever there are at least \(\lceil k/r \rceil\) rows. For the barrier, \(B_k \le k(k+1)/2\), with equality from \(k\) rows.</div>
+      <div class="proof"><span class="tag">Proof.</span> <b>No row fills up.</b> Let \(n_i = |R_i|\) and \(t_i = |S_i|\). By Lemma 2, \(n_{i+1} \le n_i + t_{i+1}\), so \(n_i \le t_0 + \dots + t_i \le k &lt; W\) for every \(i\). Every row is a proper subset, and Lemma 2 applies in every row:
+        \[ n_{i+1} \;\le\; \max(0,\, n_i - r) + t_{i+1}. \tag{1}\]
+        <b>Induction.</b> Let the rows be \(0, \dots, H\), and let \(T_i = t_{i+1} + \dots + t_H\) count the seeds placed below row \(i\). The claim is that for every \(i\),
+        \[ \textstyle\sum_{j \ge i} n_j \;\le\; f_r(n_i + T_i). \tag{2}\]
+        For \(i = H\), \(T_H = 0\) and \(n_H \le f_r(n_H)\). Assume (2) for \(i+1\). Since \(T_i = t_{i+1} + T_{i+1}\), inequality (1) gives \(n_{i+1} + T_{i+1} \le \max(0, n_i - r) + T_i\), and since \(f_r\) is nondecreasing,
+        \[ \textstyle\sum_{j \ge i} n_j \;\le\; n_i + f_r\big(\max(0, n_i - r) + T_i\big). \]
+        If \(n_i \ge r\), the right side is \(n_i + f_r(n_i + T_i - r) \le n_i + T_i + f_r(n_i + T_i - r) = f_r(n_i + T_i)\).
+        If \(n_i &lt; r\), it is \(n_i + f_r(T_i) = n_i + T_i + f_r(T_i - r) \le n_i + T_i + f_r(n_i + T_i - r) = f_r(n_i + T_i)\).
+        This proves (2). At \(i = 0\), \(n_0 + T_0 = t_0 + \dots + t_H \le k\), so the total damage is at most \(f_r(k)\).<br>
+        <b>Attained.</b> Seed \(k\) consecutive cells of row 0. By Lemma 2 the rows hold runs of \(k, k-r, k-2r, \dots\) cells, which sum to \(f_r(k)\) once there are \(\lceil k/r \rceil\) rows. ∎</div>
+      <p><b>Why this matters.</b> Neither the bound nor its proof mentions \(W\) or the height. The same limit holds for a 72-stitch cuff and a 320-stitch body. Sample testing cannot give this: the number of fault patterns grows with the garment (section 7).</p>
+      <div class="remark"><span class="tag">Remark</span> Any barrier whose port moves a fixed step \(a\) with \(\gcd(a, W) = 1\) has the same profile: relabelling column \(c\) as \(a^{-1} c \bmod W\) turns each pair \(\{c, c+a\}\) into \(\{c', c'+1\}\). Moving the port one column is enough.</div>
+    </section>
+
+    <!-- 5 THEOREM 2 -->
+    <section id="t2" class="scene" data-title="5 · Theorem 2">
+      <p class="eyebrow">Section 5 · the knitting program</p>
+      <h2>Theorem 2: the bound survives compilation</h2>
+      <p>The program has more loops than the cells of Theorem 1: \(s\) chain loops per cell and the ports. A fault can hit any of them. Two lemmas show that no such fault does more harm than a fault on a cell's top loop, and count the loops that cells release. Both hold for any permutations \(\sigma_b\), so they also cover the staggered barriers of section 10.</p>
+
+      <div class="lemma"><span class="tag">Lemma 3</span> <b>Promotion.</b> Map each loop to a top loop: \(\pi(M_{b,c,l}) = M_{b,c,s-1}\) and \(\pi(P_{b,c}) = M_{b,\sigma_b(c),s-1}\), the top of the cell the port belongs to. Under the downward rule, for every fault \(S\),
+        \[ |\pi(S)| \le |S| \qquad\text{and}\qquad \operatorname{cl}(S) \subseteq \operatorname{cl}(\pi(S)). \]</div>
+      <div class="proof"><span class="tag">Proof.</span> The first claim holds because \(\pi\) is a map. For the second, it suffices by Lemma 1 to show \(S \subseteq \operatorname{cl}(\pi(S))\), since then \(\operatorname{cl}(S) \subseteq \operatorname{cl}(\operatorname{cl}(\pi(S))) = \operatorname{cl}(\pi(S))\). A chain loop \(M_{b,c,l}\) with \(l &lt; s-1\) has one holder, \(M_{b,c,l+1}\); so once the top \(M_{b,c,s-1}\) is released, the whole chain down to \(M_{b,c,0}\) is released. A port \(P_{b,c}\) has one holder, \(M_{b,\sigma_b(c),0}\), the bottom of the chain of the cell it belongs to, so it is released with that chain. ∎</div>
+
+      <div class="lemma"><span class="tag">Lemma 4</span> <b>Cells.</b> Let \(Q\) be a set of top loops, let \(Q'\) be the corresponding cells, and let \(R\) be the closure of \(Q'\) in the row system with \(\tau_i = \sigma_{m-1-i}\). Then
+        \[ \operatorname{cl}(Q) \;=\; \bigcup_{(b,c) \in R} L(b,c), \qquad |\operatorname{cl}(Q)| \;=\; (s+1)\,|R| \;-\; f_0, \]
+        where \(f_0\) is the number of cells of \(R\) in block 0.</div>
+      <div class="proof"><span class="tag">Proof.</span> Write \(U\) for the union.
+        <b>\(U\) is closed and contains \(Q\).</b> It contains \(Q\) because \(Q' \subseteq R\). Suppose a loop \(v \notin U\) has at least one holder and all its holders lie in \(U\). If \(v\) is a chain loop below the top, its only holder is the next loop of the same chain, whose cell is then in \(R\), so \(v \in U\). If \(v = P_{b,c}\), its only holder \(M_{b,\sigma_b(c),0}\) lies in \(U\), so cell \((b, \sigma_b(c))\) is in \(R\) and \(v\) belongs to it. If \(v = M_{b,c,s-1}\) with \(b &lt; m-1\), its holders are \(M_{b+1,c,0}\) and \(P_{b+1,c}\); the first puts cell \((b+1, c)\) in \(R\), the second puts cell \((b+1, \sigma_{b+1}(c))\) in \(R\), so by the row rule \((b,c) \in R\) and \(v \in U\). Top loops of block \(m-1\) have no holder. Each case contradicts \(v \notin U\), so \(U\) is closed, and \(\operatorname{cl}(Q) \subseteq U\).<br>
+        <b>\(U \subseteq \operatorname{cl}(Q)\).</b> By induction from block \(m-1\) down. A cell of \(R\) is either in \(Q'\), so its top is in \(Q\), or it has both supporting cells in the block above in \(R\), whose loops are released by induction; then both holders of its top are released, and so is the top. In both cases the top is released, and by the argument of Lemma 3 so are its chain and its port.<br>
+        <b>Count.</b> The cells are disjoint. Each has \(s\) chain loops and, when \(b \ge 1\), exactly one port, because \(\sigma_b\) is a permutation. ∎</div>
+
+      <div class="theorem"><span class="tag">Theorem 2</span> For the fixed barrier, every \(W > k\) and every number of blocks,
+        \[ D_k \;\le\; (s+1)\,\frac{k(k+1)}{2}, \]
+        counting faults on every loop, chain loops and ports included. Equality holds when \(m \ge k+1\).</div>
+      <div class="proof"><span class="tag">Proof.</span> Take any fault \(S\) with \(|S| \le k\). By Lemma 3, \(|\operatorname{cl}(S)| \le |\operatorname{cl}(\pi(S))|\) with \(|\pi(S)| \le k\). By Lemma 4, \(|\operatorname{cl}(\pi(S))| \le (s+1)\,|R|\), where \(R\) is the closure of at most \(k\) cells in the row system with \(\tau_i(c) = c + 1\). By Theorem 1 with \(r = 1\), \(|R| \le k(k+1)/2\).<br>
+        For equality, drop the top loops of \(k\) neighbouring columns in the newest block. The released cells are runs of \(k, k-1, \dots, 1\) cells in blocks \(m-1, \dots, m-k\) (Lemma 2). If \(m \ge k+1\), none lies in block 0, so \(f_0 = 0\) and Lemma 4 gives exactly \((s+1)\,k(k+1)/2\) loops. ∎</div>
+      <div class="remark"><span class="tag">Remark</span> With \(d\) holders per old loop (\(d - 1\) ports), the same two lemmas give \(D_k \le (s + d - 1)\,B_k\). The barrier here has \(d = 2\).</div>
+    </section>
+
+    <!-- 6 THEOREM 3 -->
+    <section id="t3" class="scene" data-title="6 · Theorem 3">
+      <p class="eyebrow">Section 6 · ladders running up</p>
+      <h2>Theorem 3: ladders running up have the same worst case</h2>
+      <p>A broken yarn can also run away from the cast-on. The upward rule of Definition 2 asks whether a loop can lose every loop it was made through.</p>
+      <div class="theorem"><span class="tag">Theorem 3</span> Under the upward rule, the barrier tube has the same worst case as under the downward rule: \(D_k \le (s+1)\,k(k+1)/2\) for every \(W > k\), with equality when \(m \ge k+1\).</div>
+      <div class="proof"><span class="tag">Proof.</span> Group the loops into upward cells \(U(b,c) = \{M_{b,c,0}, \dots, M_{b,c,s-1}\} \cup \{P_{b+1,c}\}\): the chain of column \(c\) in block \(b\) and the port split from its top (for \(b &lt; m-1\)).<br>
+        <b>Promotion.</b> A chain loop \(M_{b,c,l}\) with \(l \ge 1\) was made through one loop, \(M_{b,c,l-1}\); the port \(P_{b+1,c}\) was made through one loop, \(M_{b,c,s-1}\). So once the foot \(M_{b,c,0}\) is released, the whole upward cell is released, and a fault anywhere in \(U(b,c)\) is dominated by a fault at its foot, exactly as in Lemma 3.<br>
+        <b>Cells.</b> For \(b \ge 1\), the foot \(M_{b,c,0}\) was made through two loops: \(M_{b-1,c,s-1} \in U(b-1, c)\) and the port \(P_{b,c'}\) with \(\sigma_b(c') = c\), which lies in \(U(b-1, c')\). The feet of block 0 are cast-on loops, made through nothing. The argument of Lemma 4 then shows that upward cells follow a row system with rows in the order \(b = 0, 1, \dots\) and \(\tau(c) = \sigma_b^{-1}(c) = c - 1\), and that the released loops number at most \((s+1)\) per cell.<br>
+        <b>The bound.</b> The reflection \(c \mapsto -c\) turns the support \(\{0, -1\}\) into \(\{0, 1\}\), so Theorem 1 applies: at most \(k(k+1)/2\) cells, hence at most \((s+1)\,k(k+1)/2\) loops. Seeding the feet of \(k\) neighbouring columns in block 0 releases runs of \(k, k-1, \dots, 1\) upward cells in blocks \(0, \dots, k-1\); when \(m \ge k+1\) all of them lie below block \(m-1\) and have their port, giving equality. ∎</div>
+    </section>
+
+    <!-- 7 SLEEVE -->
+    <section id="sleeve" class="scene" data-title="7 · The 160-stitch sleeve">
+      <p class="eyebrow">Section 7 · the sample sleeve</p>
+      <h2>The 160-stitch sleeve</h2>
+      <div class="theorem"><span class="tag">Corollary</span> The sleeve has \(W = 160\), \(s = 8\), \(m = 13\): \(N = 160 \times (8 \times 13 + 12) = 18{,}560\) loops. For \(k\) dropped loops anywhere, in either direction,
+        \[ D_k \;=\; 9\,\frac{k(k+1)}{2}: \qquad 9,\ 27,\ 54,\ 90,\ 135,\ 189,\ 252,\ 324,\ 405 \quad (k = 1, \dots, 9). \]</div>
+      <div class="proof"><span class="tag">Proof.</span> Theorems 2 and 3 with \(s = 8\); \(W = 160 > 9\) and \(m = 13 \ge 10\), so each value is attained. ∎</div>
+      <p><b>In centimetres.</b> One dropped loop releases at most one cell: 8 chain loops of one column and one port, within one block of \(s + 1 = 9\) courses. At 9 courses per centimetre, that is about 1 cm. The centimetre figure depends on the gauge; the loop counts do not.</p>
+      <p><b>Plain knitting.</b> In a plain tube each loop has one holder, the loop above it. One dropped loop at the top of a 116-course column releases all 116 loops of the column (Lemma 1d).</p>
+      <p><b>Why sampling cannot replace the proof.</b> The number of ways to choose 1 to 9 of the sleeve's 18,560 loops is
+        \[ \sum_{k=1}^{9} \binom{18560}{k} \;=\; 719{,}129{,}210{,}529{,}640{,}888{,}003{,}430{,}838{,}628{,}432, \]
+        a 33-digit number. Theorem 2 covers every one of these fault patterns.</p>
+    </section>
+
+    <!-- 8 THEOREM 4 -->
+    <section id="t4" class="scene" data-title="8 · Theorem 4">
+      <p class="eyebrow">Section 8 · opening on purpose</p>
+      <h2>Theorem 4: one deliberate way to open the garment</h2>
+      <div class="theorem"><span class="tag">Theorem 4</span> (a) Dropping the \(W\) top loops of the newest block releases every loop of the tube.
+        (b) If fewer than \(W\) loops are dropped, every block keeps at least one column whose \(s\) chain loops are all unreleased. In particular, fewer than \(W\) faults never release the whole tube.</div>
+      <div class="proof"><span class="tag">Proof.</span> (a) In the row system, a full row erodes to a full row, so seeding all of row 0 releases every cell. Every loop belongs to a cell (Definition 4), so Lemma 4 gives every loop.<br>
+        (b) Let \(|S| &lt; W\). By Lemma 3, \(\operatorname{cl}(S) \subseteq \operatorname{cl}(\pi(S))\) with \(|\pi(S)| &lt; W\), and by the first step of the proof of Theorem 1, each row of the closure \(R\) of \(\pi(S)\) holds fewer than \(W\) cells. So each block has a cell \((b,c) \notin R\), and by Lemma 4 no loop of \(L(b,c)\) is released. ∎</div>
+      <p>For the sleeve: dropping all 160 working-edge loops opens all 18,560 loops, while any 159 dropped loops leave at least \(8 \times 13 = 104\) loops in place. The program uses a single yarn carrier with no cuts, so the opened tube is one continuous yarn.</p>
+    </section>
+
+    <!-- 9 THEOREM 5 -->
+    <section id="t5" class="scene" data-title="9 · Theorem 5">
+      <p class="eyebrow">Section 9 · flat panels</p>
+      <h2>Theorem 5: flat panels need their ports to form one cycle</h2>
+      <p>A flat panel has no wrap-around. Its barrier carries the port of column \(c\) to column \(\sigma(c)\) for a permutation \(\sigma\) of the \(W\) columns.</p>
+      <div class="theorem"><span class="tag">Theorem 5</span> The following are equivalent: (i) for every \(k &lt; W\), the worst case of \(k\) faults is bounded independently of the panel's height; (ii) no nonempty proper set of columns \(X\) satisfies \(\sigma(X) \subseteq X\); (iii) \(\sigma\) is a single cycle through all \(W\) columns. When they hold, the panel has exactly the tube's profile: \(D_k \le (s+1)\,k(k+1)/2\), with equality when \(m \ge k+1\).</div>
+      <div class="proof"><span class="tag">Proof.</span> (iii) ⇒ (i): number the columns along the cycle, \(c_j = \sigma^j(c_0)\). Then \(\sigma(c_j) = c_{j+1 \bmod W}\), and the panel's row system is the cyclic system with support \(\{0,1\}\); Theorems 1 to 3 apply unchanged.
+        (i) ⇒ (ii): if \(\sigma(X) \subseteq X\) with \(X\) nonempty and proper, then \(\sigma(X) = X\) because \(\sigma\) is injective, so \(E(X) = X\). Dropping the top loops of the \(|X| &lt; W\) columns of \(X\) releases the cells of \(X\) in every block, and the damage grows with the height.
+        (ii) ⇒ (iii): the columns of any cycle of \(\sigma\) form a set \(X\) with \(\sigma(X) = X\), so under (ii) that cycle contains every column. ∎</div>
+      <p>No single cycle through all columns of a line uses only steps of one column. The zig-zag cycle \(0 \to 2 \to 4 \to \cdots\), then back down the odd columns to 1 and to 0, uses steps of at most two columns. Cutting the tube's pattern at the edge leaves the last column without a second holder, so one dropped loop runs its full height. Reflecting the last port inward makes the last two columns an invariant pair, so two dropped loops run the full height.</p>
+    </section>
+
+    <!-- 10 THEOREM 6 -->
+    <section id="t6" class="scene" data-title="10 · Theorem 6">
+      <p class="eyebrow">Section 10 · staggered barriers</p>
+      <h2>Theorem 6: staggered barriers, fewer loops lost to many faults</h2>
+      <p>With a fixed step, every two-holder barrier has the profile \(k(k+1)/2\). Alternating the step between barrier courses breaks this triangle: a run of released cells that shrinks slowly under one step shrinks fast under the other. The Studio uses the patterns \((a_1, a_2) = (2, 1)\) and \((3, 2)\), repeated. Let \(A\) be the largest step. The row system has \(\tau_i(c) = c + a_i\) with the steps repeating, and an attack may start at any phase of the pattern.</p>
+
+      <div class="lemma"><span class="tag">Lemma 5</span> Every released cell lies in a column that contains a seed.</div>
+      <div class="proof"><span class="tag">Proof.</span> An unseeded released cell \((i+1, c)\) needs \((i, c)\) released: each support contains the cell's own column. Going up the column, some released cell of column \(c\) is a seed. ∎</div>
+
+      <div class="lemma"><span class="tag">Lemma 6</span> <b>Independent components.</b> Join two seeded columns \(x, y\) when \(y - x\) is \(\pm\) a step (modulo \(W\) on a tube). Then the closure of the attack is the disjoint union of the closures of its connected components, each taken alone.</div>
+      <div class="proof"><span class="tag">Proof.</span> For a component \(K\), let \(S_K\) be its seeds. By Lemma 5, \(\operatorname{cl}(S_K)\) lies in the columns of \(K\), so these closures are disjoint, and each lies in \(\operatorname{cl}(S)\) by Lemma 1b. Their union \(U\) is closed: if \((i+1, c)\) has both supports \((i, c)\) and \((i, c + a_i)\) in \(U\), both columns are seeded and adjacent, hence in one component \(K\), and both cells are in \(\operatorname{cl}(S_K)\), so \((i+1, c) \in \operatorname{cl}(S_K)\). As \(U\) is closed and contains \(S\), \(\operatorname{cl}(S) \subseteq U\). ∎</div>
+
+      <div class="lemma"><span class="tag">Lemma 7</span> <b>Lifting to the line.</b> On a tube with \(W > A\,k\), a component with \(j \le k\) seeded columns behaves exactly as an attack on the infinite line \(\mathbb{Z}\) whose seeded columns lie in a window of \(A(j-1)+1\) columns.</div>
+      <div class="proof"><span class="tag">Proof.</span> Take a spanning tree of the component and lift its columns to integers along the tree: each tree edge changes the lift by the step it uses, at most \(A\). The intervals spanned by the tree edges form a connected union, so all lifts lie in an interval of length at most \(A(j-1)\). For two columns \(x, y\) of the component and a step \(a\), \(|\lambda(y) - \lambda(x) - a| \le A(j-1) + A \le A\,k &lt; W\); hence \(y \equiv x + a \pmod W\) holds exactly when \(\lambda(y) = \lambda(x) + a\). Every support relation among the component's columns is the same on the tube and on the line, and cells outside seeded columns never release in either (Lemma 5), so the two closures correspond cell for cell. A finite tube only removes rows below its cast-on, which feed nothing above them. ∎</div>
+
+      <div class="theorem"><span class="tag">Theorem 6</span> Let \(\mathrm{Wn}(j)\) be the exact worst case of at most \(j\) seeds placed in a window of \(A(j-1)+1\) consecutive columns of the line, over every starting phase and every height. For every tube with \(W > A\,k\),
+        \[ B_k \;\le\; \max_{k_1 + k_2 + \cdots = k} \;\sum_{t} \mathrm{Wn}(k_t), \]
+        and the knitting program releases at most \((s+1)\) times this many loops, in either direction.</div>
+      <div class="proof"><span class="tag">Proof.</span> Split any attack of \(k\) seeds into components (Lemma 6), with \(k_t\) seeds in component \(t\), so \(\sum k_t \le k\). A component has at most \(k_t\) columns, so by Lemma 7 its damage is at most \(\mathrm{Wn}(k_t)\). Lemmas 3 and 4 hold for any permutations \(\sigma_b\), which gives the factor \(s+1\). For ladders running up, the proof of Theorem 3 applies with \(\tau(c) = c - a_b\), the steps met in increasing block order. Reflecting the columns, \(c \mapsto -c\), turns this into the downward system with the steps met in the opposite order. For a pattern of period 2 that is the same pattern at another phase, and \(\mathrm{Wn}\) is a maximum over every phase. ∎</div>
+
+      <p><b>The exact computation.</b> \(\mathrm{Wn}(j)\) is a finite quantity: a longest-path dynamic program over the released set of the current row (at most \(2^{A(j-1)+1}\) states), the seeds left and the phase, with one move per added seed or eroded row. For \(j = 9\) and \(A = 3\) the window has 25 columns and 33.5 million states per phase. The program checks itself against Theorem 1 for a fixed step and reconstructs an attack that attains each value.</p>
+      <div class="table-scroll">
+      <table class="data">
+        <thead><tr><th>Barrier pattern</th><th>\(B_1, \dots, B_9\) (cells)</th><th class="num">Loops, \(k = 9\), \(s = 8\)</th><th>Valid for</th></tr></thead>
+        <tbody>
+          <tr><td>Fixed step 1</td><td>1, 3, 6, 10, 15, 21, 28, 36, 45</td><td class="num">405</td><td>every \(W > k\) (Theorem 1)</td></tr>
+          <tr><td>Steps 2, 1</td><td>1, 3, 5, 8, 12, 16, 21, 27, 33</td><td class="num">297</td><td>\(W > 2k\) (Theorem 6)</td></tr>
+          <tr><td>Steps 3, 2</td><td>1, 3, 5, 7, 10, 13, 16, 20, 24</td><td class="num">216</td><td>\(W > 3k\) (Theorem 6)</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>For both patterns the best split is a single component, so the bound equals \(\mathrm{Wn}(k)\). The attaining attacks release exactly \(9 B_k\) loops on the compiled programs of 32, 72 and 160 stitches (steps 3, 2 for every \(k \le 9\); steps 2, 1 upward for \(k \le 5\)), and on the 160-stitch construction for every \(k \le 9\) and both patterns (section 12). As these tubes are wider than \(A\,k\), the values are their exact worst cases. No closed form is claimed for staggered patterns.</p>
+    </section>
+
+    <!-- 11 COST -->
+    <section id="cost" class="scene" data-title="11 · Machine cost">
+      <p class="eyebrow">Section 11 · counted, not proved</p>
+      <h2>Machine cost</h2>
+      <p>The cost figures are counts on the emitted programs. A carriage pass is a maximal run of one operation class at one rack; loop-making passes also need one direction and monotone needles, and transfer passes need one source bed and no repeated needle.</p>
+      <p>A plain tube needs 2 passes per course. The split course takes the 2 passes of the knitted course it replaces. Each barrier then adds the transfers that carry the ports: 2 racked transfer passes, 2 single transfers around the folds and 2 return passes, 6 passes in all, independent of the circumference. At equal loop count (\(s\,m + m - 1\) courses),
+        \[ \frac{\text{barrier passes}}{\text{plain passes}} \;=\; 1 + \frac{3\,(m-1)}{(s+1)\,m - 1} \;\xrightarrow[m \to \infty]{}\; 1 + \frac{3}{s+1}. \]
+        For the sleeve (\(s = 8\), \(m = 13\)) this is \(1 + 36/116 = 1.31\). The staggered programs count 1.47 (steps 2, 1) and 1.62 (steps 3, 2). The first optimal designs of this project, which routed ports across the needle bed, counted 23,434 passes against 151 for plain knitting of the same loops: 155 times.</p>
+    </section>
+
+    <!-- 12 CHECKS -->
+    <section id="checks" class="scene" data-title="12 · Checks">
+      <p class="eyebrow">Section 12 · independent checks</p>
+      <h2>Checks</h2>
+      <p>The proofs above are complete on their own. The checks guard against a gap between the mathematics and the programs: a wrong arrow in the construction, a misread machine operation, or an error in the proofs.</p>
+
+      <div class="card checker">
+        <div class="card-head">
+          <div>
+            <h3>Run the checks in your browser</h3>
+            <p class="hint">Rebuilds the sleeve's 18,560-loop graph from Definition 3 and tests Theorems 1 to 6 on exhaustive and attaining attacks. About a second. The same file runs with <code>node proofs/check.js</code>.</p>
+          </div>
+          <button class="btn primary" id="run-checks" type="button"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/></svg><span>Run the checks</span></button>
+        </div>
+        <ol class="check-list" id="check-list"></ol>
+        <p class="check-summary" id="check-summary" aria-live="polite"></p>
+      </div>
+
+      <h3 class="h-sub">Checks on the emitted knitting programs</h3>
+      <p>These run on the Knitout programs the compiler writes, read by an independently implemented program reader. All passed when re-run on 29 September 2026.</p>
+      <div class="table-scroll">
+      <table class="data">
+        <thead><tr><th>Check</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>Program reader on the emitted tubes</td><td>Needle operations match the declared capture graph of Definition 3</td></tr>
+          <tr><td>Carnegie Mellon's knitout parser and simulator, unmodified [3]</td><td>No errors and no warnings on the tube, flat panel and staggered programs checked, including the 160-stitch staggered sleeve</td></tr>
+          <tr><td>Every fault of up to 3 loops, five small tubes, ladders down</td><td>50,725 fault sets, all within Theorem 2, attained where the tube is tall enough</td></tr>
+          <tr><td>Every fault of up to 3 loops, three small flat panels</td><td>45,296 fault sets, all within Theorem 5</td></tr>
+          <tr><td>Every fault of up to 3 loops, tubes, panels and staggered tubes, ladders up</td><td>859,689 fault sets, all within the downward bound (Theorem 3)</td></tr>
+          <tr><td>Every fault of up to 3 loops, staggered tubes of 12, 14 and 16 stitches</td><td>418,502 fault sets, within the exact values and reaching them</td></tr>
+          <tr><td>Attaining attacks on tubes of 24, 72, 160 and 320 stitches, panels 25 and 150 wide</td><td>9, 27, 54, 90, 135 at \(s = 8\): identical at every width</td></tr>
+          <tr><td>Attaining attacks on staggered tubes of 32, 72 and 160 stitches</td><td>9, 27, 45, 63, 90, 117, 144, 180, 216 (steps 3, 2), exactly \(9B_k\)</td></tr>
+          <tr><td>Working-edge release</td><td>\(W\) dropped loops release every loop of each tube</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+    <!-- 13 SCOPE -->
+    <section id="scope" class="scene" data-title="13 · Scope">
+      <p class="eyebrow">Section 13 · what the theorems cover</p>
+      <h2>Scope</h2>
+      <ul class="scope-list">
+        <li><b>Covered:</b> loop release in the declared model of section 1, in both directions, for the emitted tube, flat panel and staggered programs, with faults on any loop, including every loop the barrier adds.</li>
+        <li><b>Left out by the model:</b> friction and yarn tension, fabric geometry and stretch, cut yarn and the motion of its free ends, washing and wear. Whether a physical ladder obeys the release rule at the barrier is the first question for physical tests.</li>
+        <li><b>Left out by the program:</b> a wearable finish of the working edge. In the programs the top loops stay on the needles.</li>
+        <li><b>Centimetres</b> come from the gauge (9 courses per cm, the Studio's fine-knit default), not from measurement.</li>
+        <li><b>Next:</b> knit barrier and plain samples, and measure ladder length after snagging, washing and wear against the bounds above.</li>
+      </ul>
+    </section>
+
+    <!-- 14 REFS -->
+    <section id="refs" class="scene sources" data-title="14 · References">
+      <p class="eyebrow">Section 14</p>
+      <h2 class="h-small">References</h2>
+      <ol class="refs">
+        <li>Knitout specification, Textiles Lab, Carnegie Mellon University. <a href="https://textiles-lab.github.io/knitout/knitout.html" rel="noopener">textiles-lab.github.io/knitout</a></li>
+        <li>Hurtig et al., machine-knitting program equivalence, ICFP 2025, section 8.2. <a href="https://doi.org/10.1145/3747517" rel="noopener">doi.org/10.1145/3747517</a></li>
+        <li>knitout-live-visualizer, Textiles Lab, Carnegie Mellon University, MIT licence, used unmodified at a pinned commit.</li>
+        <li>knitout-to-dat-python, MIT licence, used to convert the programs to Shima Seiki DAT files. <a href="https://mhofmann-khoury.github.io/knitout_to_dat_python/" rel="noopener">mhofmann-khoury.github.io/knitout_to_dat_python</a></li>
+        <li>Hosiery run-stop patents US3052110A and US3208241A: tuck and plain courses in rough yarn, validated on samples.</li>
+      </ol>
+      <p class="hint">Marc Donovici, 2026. Questions and corrections: <a href="mailto:marcdonovici@gmail.com?subject=RUNSAFE%20proofs">marcdonovici@gmail.com</a></p>
+    </section>
+
+  </article>
+  </main>
+</div>
+
+<div class="chapter-strip" aria-hidden="true">
+  <div class="strip-brand">RUNSAFE<small>Proofs</small></div>
+  <span class="strip-count" id="strip-count">01 / 15</span>
+  <span class="strip-title" id="strip-title">Overview</span>
+  <span class="spacer"></span>
+  <div class="strip-dashes" id="strip-dashes"></div>
+</div>
+
+<script src="proofs/check.js"></script>
+<script src="proofs/proofs.js"></script>
+</body>
+</html>
