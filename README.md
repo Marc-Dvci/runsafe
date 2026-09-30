@@ -1,6 +1,6 @@
 # RUNSAFE
 
-RUNSAFE is design software that applies mathematical proof to knitting. It gives knitwear a damage rating: how far one snag can run, proved, compiled into the knitting-machine program and checkable by anyone.
+RUNSAFE is design software that applies mathematical proof to knitting. It gives knitwear a damage rating: how far one dropped stitch can run, proved, compiled into the knitting-machine program and checkable by anyone.
 
 This repository holds the RUNSAFE website: a static page with the demo film and a working "Design from a rating" tool for the 160-stitch sample sleeve, and a proofs page with the definitions, theorems and complete proofs behind the rating.
 

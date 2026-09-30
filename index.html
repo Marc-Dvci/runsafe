@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RUNSAFE · A proved damage rating for knitwear</title>
-<meta name="description" content="RUNSAFE is design software that applies mathematical proof to knitting. It gives knitwear a damage rating: how far one snag can run, proved, compiled into the machine program and checkable by anyone.">
+<meta name="description" content="RUNSAFE is design software that applies mathematical proof to knitting. It gives knitwear a damage rating: how far one dropped stitch can run, proved, compiled into the machine program and checkable by anyone.">
 <meta property="og:title" content="RUNSAFE · A proved damage rating for knitwear">
 <meta property="og:description" content="Your phone has a water rating. Your sunscreen has an SPF. Your sweater has nothing. RUNSAFE gives knitwear a damage rating anyone can check.">
 <meta property="og:image" content="assets/img/poster.jpg">
@@ -61,7 +61,7 @@
 
     <!-- HOME -->
     <section id="home" class="scene hero" data-title="A sweater has no damage rating">
-      <p class="eyebrow">What does one snag cost?</p>
+      <p class="eyebrow">What does one dropped stitch cost?</p>
       <h1>Your phone has a water rating.<br>Your sunscreen has an SPF.<br>Your sweater has nothing.</h1>
       <div class="rating-row">
         <div class="rating-card">
@@ -79,7 +79,7 @@
         </div>
       </div>
       <div class="hero-lead">
-        <p class="lead"><b>RUNSAFE is design software that applies mathematical proof to knitting.</b> It gives knitwear a damage rating, how far one snag can run, so small faults stay repairable and garments stay in use.</p>
+        <p class="lead"><b>RUNSAFE is design software that applies mathematical proof to knitting.</b> It gives knitwear a damage rating, how far one dropped stitch can run, so small faults stay repairable and garments stay in use.</p>
         <div class="cta-row">
           <a class="btn primary big" href="#demo"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/></svg>Watch the 4:45 demo</a>
           <a class="btn outline big" href="#rate">Try design from a rating</a>
@@ -87,10 +87,10 @@
       </div>
       <figure class="window">
         <div class="window-bar"><i></i><i></i><i></i><span>RUNSAFE Studio · the same dropped loop in two compiled sleeves</span></div>
-        <img src="assets/img/hook.webp" alt="Two 3D sleeves in RUNSAFE Studio: in plain knitting one dropped loop unravels 116 loops; in the RUNSAFE sleeve it stops within 9 loops at a barrier course." width="1600" height="900" loading="eager">
+        <img src="assets/img/hook.webp" alt="Two 3D sleeves in RUNSAFE Studio: two 13 cm sections of the same 160-stitch sleeve: in plain knitting one dropped loop unravels all 116 loops of its column; in the RUNSAFE section it stops within 9 loops at a barrier course." width="1600" height="900" loading="eager">
       </figure>
       <div class="stat-band">
-        <div><strong><span class="red">116</span> → <span class="green">9</span></strong><span>loops released by one dropped stitch, plain sleeve against RUNSAFE sleeve</span></div>
+        <div><strong><span class="red">116</span> → <span class="green">9</span></strong><span>loops released by one dropped stitch, in two 13 cm sections of the same sleeve</span></div>
         <div><strong>1.31×</strong><span>machine passes against plain knitting, counted on the compiled program</span></div>
         <div><strong>33 digits</strong><span>ways up to nine stitches can drop from this sleeve, all covered by the proof</span></div>
         <div><strong>859,689</strong><span>exhaustive fault sets checked on the emitted programs, all within the bound</span></div>
@@ -118,8 +118,8 @@
     <section id="problem" class="scene split" data-title="The problem">
       <div>
         <p class="eyebrow">The problem</p>
-        <h2>One snag can ladder down a whole sleeve</h2>
-        <p class="body">In ordinary knitting each loop is held by the loop above it. Drop one, and the whole column can unravel. In fine knitwear and smooth yarns such as silk, fine cotton and polyamide, a snag at the elbow of a plain sleeve can ladder to the cuff, and an almost intact garment can end up thrown away.</p>
+        <h2>One dropped stitch can ladder down a whole sleeve</h2>
+        <p class="body">In ordinary knitting each loop is held by the loop above it. Drop one, and the whole column can unravel. In fine knitwear and smooth yarns such as silk, fine cotton and polyamide, a stitch dropped at the elbow of a plain sleeve can ladder to the cuff, and an almost intact garment can end up thrown away.</p>
         <p class="body">Run-stops exist, but they are validated on samples. Nobody states a worst case for a whole garment, and nobody can check one.</p>
         <div class="mini-stats">
           <div class="mini"><strong>≈ 37%</strong><span>of clothing-disposal reasons are intrinsic quality failures such as tears and holes <cite>Laitala &amp; Klepp, review of 17 studies</cite></span></div>
@@ -127,8 +127,8 @@
         </div>
       </div>
       <figure class="shot">
-        <img src="assets/img/garment.webp" alt="Technical flat of a fitted top: in plain jersey a snag at the elbow ladders 22 cm to the cuff; with barrier courses it stops within 1 cm." width="1600" height="900" loading="lazy">
-        <figcaption><b class="red">22 cm</b> plain jersey, snag to cuff · <b class="green">≤ 1 cm</b> with a barrier every 8 rows, at 9 courses/cm</figcaption>
+        <img src="assets/img/garment.webp" alt="Technical flat of a fitted top: in plain jersey a stitch dropped at the elbow ladders 22 cm to the cuff; with barrier courses it stops within 1 cm." width="1600" height="900" loading="lazy">
+        <figcaption><b class="red">22 cm</b> plain jersey, elbow to cuff · <b class="green">≤ 1 cm</b> with a barrier every 8 rows, at 9 courses/cm</figcaption>
       </figure>
     </section>
 
@@ -210,12 +210,12 @@
           <div class="card">
             <div class="card-head"><h3>The rating</h3><span class="hint">160-stitch seamless sleeve · 9 courses/cm</span></div>
             <div class="field">
-              <label for="r-one">One snag stops within <span class="val" id="v-one">1.0 cm</span></label>
+              <label for="r-one">One dropped stitch stops within <span class="val" id="v-one">1.0 cm</span></label>
               <input id="r-one" type="range" min="5" max="30" value="10">
               <span class="hint" id="h-one">9 loops at this gauge</span>
             </div>
             <div class="field">
-              <label for="r-nine">Nine snags release at most <span class="val" id="v-nine">450 loops</span></label>
+              <label for="r-nine">Nine dropped stitches release at most <span class="val" id="v-nine">450 loops</span></label>
               <input id="r-nine" type="range" min="15" max="120" value="45">
               <span class="hint">anywhere in the garment, worst case</span>
             </div>
@@ -237,15 +237,15 @@
           <div class="card-head"><h3>Every construction checked</h3><span class="hint" id="t-count"></span></div>
           <div class="table-scroll">
             <table class="data">
-              <thead><tr><th>Construction</th><th class="num">One snag</th><th class="num">Nine snags</th><th class="num">Carriage passes</th><th>Evidence</th><th>Meets the rating</th></tr></thead>
+              <thead><tr><th>Construction</th><th class="num">One dropped stitch</th><th class="num">Nine dropped</th><th class="num">Carriage passes</th><th>Evidence</th><th>Meets the rating</th></tr></thead>
               <tbody id="t-body"></tbody>
             </table>
           </div>
-          <p class="hint foot">Compiled designs show their verified worst cases and the passes counted on the emitted program. Other spacings use the proved bound of <a href="proofs.html#t1">Theorem 1</a> (s + 1 loops for one snag, 45·(s + 1) for nine) and the counted rule of six extra passes per barrier. Bounds hold in the declared loop-release model; physical trials are the next step.</p>
+          <p class="hint foot">Compiled designs show their verified worst cases and the passes counted on the emitted program. Other spacings use the proved bound of <a href="proofs.html#t1">Theorem 1</a> (s + 1 loops for one dropped stitch, 45·(s + 1) for nine) and the counted rule of six extra passes per barrier. Bounds hold in the declared loop-release model; physical trials are the next step.</p>
         </div>
       </div>
       <figure class="shot wide">
-        <img src="assets/img/export.webp" alt="A compiled design in RUNSAFE Studio: staggered barriers, 297 loops worst case for nine snags, 18,560 loops, 1.47× carriage passes, with its export menu listing the knitting program, machine program and Shima Seiki DAT file." width="1600" height="900" loading="lazy">
+        <img src="assets/img/export.webp" alt="A compiled design in RUNSAFE Studio: staggered barriers, 297 loops worst case for nine dropped stitches, 18,560 loops, 1.47× carriage passes, with its export menu listing the knitting program, machine program and Shima Seiki DAT file." width="1600" height="900" loading="lazy">
         <figcaption>The compiled design opens with its exports: datasheet, knitting program, opening program, Shima Seiki DAT file, damage profile and the complete package.</figcaption>
       </figure>
     </section>
@@ -290,14 +290,14 @@
         <article class="card horizon">
           <span class="kicker">Now · fine knitwear</span>
           <h3>Flat-bed knitwear in smooth yarns</h3>
-          <p>Sleeves, cuffs and fine tops, where ladders run easily. The Studio compiles and certifies these designs today.</p>
+          <p>Straight sleeves, cuffs and panels, where ladders run easily. The Studio compiles and certifies these designs today; shaped pieces come next.</p>
           <strong>≈ 37%</strong>
           <span class="hint">of clothing-disposal reasons are quality failures such as tears and holes · Laitala &amp; Klepp</span>
         </article>
         <article class="card horizon">
           <span class="kicker">Next · hosiery</span>
           <h3>Tights, the classic ladder</h3>
-          <p>Circular hosiery machines need their own barrier construction and compiler: a research target for the next stage.</p>
+          <p>Circular hosiery machines need their own barrier construction and compiler: research that starts in the first year.</p>
           <strong>130 M</strong>
           <span class="hint">pairs of tights sold a year in France; 72% of women say a pair lasts about six wears · HOP survey, reported May 2018</span>
         </article>
@@ -312,15 +312,15 @@
       <div class="impact card dark">
         <div class="impact-head">
           <span class="kicker light">The climate case · worked wool example</span>
-          <h3>Preventing 0.7% of discards repays the extra knitting</h3>
+          <h3>Preventing 1.3% of discards repays the extra knitting</h3>
         </div>
         <div class="impact-grid">
           <div><strong>+31%</strong><span>counted machine passes for the sleeve, against plain knitting of equal loop count</span></div>
           <div><strong>0.15 kg</strong><span>CO₂e added per garment, from knitting energy, in this worked example</span></div>
-          <div><strong>0.7%</strong><span>of discards prevented repays the added knitting footprint</span></div>
-          <div><strong>≈ 950 t</strong><span>CO₂e avoided per million garments a year, if ladders end 1 in 10 and barriers prevent half of those (scenario)</span></div>
+          <div><strong>1.3%</strong><span>of discards prevented repays the added knitting footprint, even if only half of the longer wear replaces a new purchase</span></div>
+          <div><strong>≈ 400 t</strong><span>CO₂e avoided per million garments a year, if ladders end 1 in 10, barriers prevent half of those, and half the longer wear replaces a purchase (scenario; 950 t if all of it does)</span></div>
         </div>
-        <p class="hint light">Worked example: 0.4 kg wool jumper, 21.93 kg CO₂e virgin baseline (Hester et al., <i>Textiles</i>, 2026), 2.39 kWh/kg knitting, 0.5 kg CO₂e/kWh. This is a scenario; the pilots will measure its inputs.</p>
+        <p class="hint light">Worked example: 0.4 kg wool jumper, 21.93 kg CO₂e virgin baseline (Hester et al., <i>Textiles</i>, 2026), 2.39 kWh/kg knitting, 0.5 kg CO₂e/kWh, replacement rate 50%. This is a scenario; the pilots will measure its inputs.</p>
       </div>
     </section>
 
@@ -337,9 +337,9 @@
               <tr><td>Worst case for <i>k</i> dropped loops, fewer than the width, at every circumference, down and up</td><td><span class="chip proved">Proved</span></td><td>Written theorems in a declared loop-release model; exhaustive computer checks on small tubes; attaining attacks replayed on tubes of 32, 72 and 160 stitches</td></tr>
               <tr><td>The bound survives compilation into the machine program</td><td><span class="chip proved">Proved</span></td><td>Proof covering the loops the compiler adds; independently implemented reader; Carnegie Mellon's knitout simulator accepts the programs</td></tr>
               <tr><td>1.31× carriage passes for a barrier every 8 rows</td><td><span class="chip counted">Counted</span></td><td>Passes counted on the emitted program for the 160-stitch sleeve</td></tr>
-              <tr><td>≤ 1 cm for one snag</td><td><span class="chip counted">From the gauge</span></td><td>9 loops at the Studio's fine-knit default of 9 courses per cm</td></tr>
+              <tr><td>≤ 1 cm for one dropped stitch</td><td><span class="chip counted">From the gauge</span></td><td>9 loops at the Studio's fine-knit default of 9 courses per cm</td></tr>
               <tr><td>Shima Seiki export</td><td><span class="chip counted">Works</span></td><td>Machine variants convert to Shima Seiki DAT files with an open converter</td></tr>
-              <tr><td>Climate benefit</td><td><span class="chip modelled">Modelled</span></td><td>Service-life model with sourced defaults; each input flagged for measurement</td></tr>
+              <tr><td>Climate benefit</td><td><span class="chip modelled">Modelled</span></td><td>Service-life model with sourced defaults and a stated replacement rate; each input flagged for measurement</td></tr>
               <tr><td>Ladder length after knitting, washing and wear; repair time and cost</td><td><span class="chip next">Next</span></td><td>Physical samples and wear trials with a knitting laboratory</td></tr>
             </tbody>
           </table>
@@ -380,7 +380,7 @@
           <p class="body">Marc trained in mathematics and economics in a French preparatory class, holds master's degrees in management and finance from Grenoble École de Management, and works as an IT auditor. In competitions: third of more than 850 teams in Google's MedGemma Impact Challenge, and a finalist at the European Patent Office CodeFest 2026.</p>
           <div class="cta-row">
             <a class="btn outline" href="https://www.linkedin.com/in/marc-donovici" rel="noopener">LinkedIn</a>
-            <a class="btn outline" href="https://github.com/Marc-Dvci" rel="noopener">GitHub</a>
+            <a class="btn outline" href="https://github.com/Marc-Dvci/runsafe" rel="noopener">GitHub</a>
           </div>
         </div>
       </div>
@@ -391,12 +391,13 @@
       <p class="eyebrow">Sources and scope</p>
       <ul>
         <li>719,129,210,529,640,888,003,430,838,628,432 is the sum of C(18,560, <i>k</i>) for <i>k</i> = 1 to 9: the ways to choose 1 to 9 of the sleeve's 18,560 loops.</li>
-        <li>116 / 9 loops, 405, 297 and 1.31× / 1.47× come from the compiled sample sleeves (160 stitches around). Other spacings in the rating table are predicted from Theorem 1 and the counted rule of six extra passes per barrier. Definitions, theorems and complete proofs: <a href="proofs.html">the proofs page</a>.</li>
+        <li>116 / 9 loops come from two compiled 13 cm sections of the sleeve (160 stitches around, 116 courses); 22 cm / 198 loops from the garment view at 9 courses per cm. 405, 297 and 1.31× / 1.47× come from the compiled sample sleeves. Other spacings in the rating table are predicted from Theorem 1 and the counted rule of six extra passes per barrier. Definitions, theorems and complete proofs: <a href="proofs.html">the proofs page</a>.</li>
         <li>859,689 exhaustive fault sets: the reverse-direction checks on the emitted tube programs, alongside exact replays of the worst-case attacks on tubes up to 320 stitches around.</li>
         <li>K. Laitala &amp; I. G. Klepp, review of clothing-disposal reasons across 17 studies (Consumption Research Norway, OsloMet, 2022): intrinsic quality ≈ 37% of reasons.</li>
         <li>HOP (Halte à l'Obsolescence Programmée) survey of more than 3,000 women, reported by Connexion France, 15 May 2018: more than 130 million pairs of tights sold a year in France; 72% say their tights last about six uses.</li>
         <li>European Commission press release IP/23/3635, July 2023: 5.2 million tonnes of clothing and footwear waste a year in the EU. Digital product passports: Regulation (EU) 2024/1781 (ESPR).</li>
         <li>Hester et al., <i>Textiles</i> 6(1):19, 2026: virgin wool jumper 21.93 kg CO₂e against 0.89 kg from unravelled yarn.</li>
+        <li>Sandin &amp; Peters, Environmental impact of textile reuse and recycling – A review, <i>Journal of Cleaner Production</i> 184 (2018) 353–365: the benefits of longer use depend on how much new production it replaces. The 50% replacement rate is a scenario value.</li>
         <li>All damage bounds hold in the declared loop-release model. Physical samples, wear tests and repair trials are the next step and have not been run.</li>
       </ul>
     </section>

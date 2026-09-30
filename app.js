@@ -81,7 +81,7 @@
 
   /* ---------- design from a rating (Studio logic, 160-stitch sleeve) ---------- */
   // Compiled designs: verified worst cases and passes counted on the emitted programs.
-  // Predicted spacings: theorem L1 (s + 1 loops for one snag, 45(s + 1) for nine) and six extra passes per barrier, 13 blocks.
+  // Predicted spacings: theorem L1 (s + 1 loops for one dropped stitch, 45(s + 1) for nine) and six extra passes per barrier, 13 blocks.
   const PER_CM = 9, BLOCKS = 13;
   const predicted = (s) => ({ name: `Barrier every ${s} rows`, one: s + 1, nine: 45 * (s + 1), ratio: 1 + (6 * (BLOCKS - 1)) / (2 * BLOCKS * (s + 1) - 2), compiled: false });
   const CANDIDATES = [
@@ -115,10 +115,10 @@
       const chip = best.compiled ? '<span class="chip proved">Compiled · verified worst case</span>' : '<span class="chip">Predicted · compile to confirm</span>';
       ans.innerHTML = `<div class="card-head"><h3>RUNSAFE's answer</h3>${chip}</div>
         <div class="winner"></div>
-        <div class="badge">${shield}<div><b>Ladder rating ≤ ${cm(best.one)} cm</b><span>nine snags ≤ ${fmt(best.nine)} loops · proved in the loop-release model</span></div></div>
+        <div class="badge">${shield}<div><b>Ladder rating ≤ ${cm(best.one)} cm</b><span>nine dropped stitches ≤ ${fmt(best.nine)} loops · proved in the loop-release model</span></div></div>
         <div class="rate-stats">
-          <div><strong>${fmt(best.one)}</strong><span>loops, one snag</span></div>
-          <div><strong>${fmt(best.nine)}</strong><span>loops, nine snags</span></div>
+          <div><strong>${fmt(best.one)}</strong><span>loops, one dropped stitch</span></div>
+          <div><strong>${fmt(best.nine)}</strong><span>loops, nine dropped</span></div>
           <div><strong>+${fmt((best.ratio - 1) * 100)}%</strong><span>carriage passes</span></div>
         </div>
         ${best.seek != null ? `<a class="btn" href="#demo" data-jump="${best.seek}">See it compiled in the demo</a>` : ''}`;
@@ -137,7 +137,7 @@
       const k = check(c), ok = k.one && k.nine && k.cost;
       const tr = document.createElement('tr');
       tr.className = c === best ? 'best' : ok ? '' : 'fail';
-      const fails = [!k.one && 'one snag', !k.nine && 'nine snags', !k.cost && 'budget'].filter(Boolean).join(', ');
+      const fails = [!k.one && 'one dropped stitch', !k.nine && 'nine dropped', !k.cost && 'budget'].filter(Boolean).join(', ');
       tr.innerHTML = `<td></td>
         <td class="num ${k.one ? '' : 'bad'}">${fmt(c.one)} loops · ${cm(c.one)} cm</td>
         <td class="num ${k.nine ? '' : 'bad'}">${fmt(c.nine)}</td>
