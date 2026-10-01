@@ -36,17 +36,17 @@
   /* ---------- demo film chapters ---------- */
   const CHAPTERS = [
     [0, 'RUNSAFE in one sentence'],
-    [20, 'A sweater has no damage rating'],
-    [45, 'An auditor looks at knitwear'],
-    [65, 'A second holder stops the ladder'],
-    [85, 'Proved, not sampled'],
-    [130, 'Design from a rating'],
-    [170, 'A rating anyone can check'],
-    [190, 'Locate. Repair. Recover.'],
-    [210, 'Where a proved rating goes'],
-    [240, 'Three challenges'],
+    [19.84, 'A sweater has no damage rating'],
+    [44.24, 'An auditor looks at knitwear'],
+    [62.16, 'A second holder stops the ladder'],
+    [78.64, 'Proved, not sampled'],
+    [123.6, 'Design from a rating'],
+    [158.36, 'A rating anyone can check'],
+    [175.12, 'Locate. Repair. Recover.'],
+    [193.24, 'Where a proved rating goes'],
+    [220.88, 'Three challenges'],
   ];
-  const END = 285;
+  const END = 256.5;
   const film = document.getElementById('film');
   const list = document.getElementById('chapters');
   const mmss = (t) => `${Math.floor(t / 60)}:${pad(Math.floor(t % 60))}`;

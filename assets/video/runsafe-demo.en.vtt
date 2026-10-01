@@ -1,269 +1,302 @@
 WEBVTT
 
 1
-00:00:00.600 --> 00:00:05.915
-This is RUNSAFE, by Marc Donovici, an IT auditor in Strasbourg.
+00:00:00.760 --> 00:00:02.320
+Hello, I'm Marc Donovici.
 
 2
-00:00:05.865 --> 00:00:09.101
-RUNSAFE is design software that uses mathematical
+00:00:02.360 --> 00:00:06.180
+I'm an IT auditor from Strasbourg,
+France, and I'm here to present RUNSAFE,
 
 3
-00:00:09.101 --> 00:00:11.678
-proof to give knitwear a damage rating:
+00:00:06.220 --> 00:00:09.120
+my design software that uses
+new mathematical theory
 
 4
-00:00:11.678 --> 00:00:13.964
+00:00:09.160 --> 00:00:14.050
+to give knitwear a damage rating and see
 how far one dropped stitch can run.
 
 5
-00:00:13.964 --> 00:00:18.273
-So small faults stay repairable, and garments stay in use.
+00:00:14.260 --> 00:00:19.130
+The goal is to have small faults stay
+repairable and garments stay in use.
 
 6
-00:00:20.600 --> 00:00:22.933
-Your phone has a water rating.
+00:00:19.848 --> 00:00:22.108
+Your phone has a water rating,
 
 7
-00:00:22.883 --> 00:00:25.500
-Your sunscreen has an SPF.
+00:00:22.148 --> 00:00:25.938
+your sunscreen has an SPF,
+but your sweater has nothing.
 
 8
-00:00:25.500 --> 00:00:27.111
-Your sweater has nothing:
+00:00:26.128 --> 00:00:29.438
+No one can tell how far
+a dropped stitch will run.
 
 9
-00:00:27.111 --> 00:00:30.591
-no one can tell you how far a dropped stitch will run.
-
-10
-00:00:30.591 --> 00:00:33.467
+00:00:29.808 --> 00:00:32.808
 Here are two sections of the same sleeve.
 
+10
+00:00:32.848 --> 00:00:36.728
+In plain knitting, you can see
+that the ladder runs right to the edge.
+
 11
-00:00:33.467 --> 00:00:36.984
-In plain knitting, the ladder runs right to the edge.
+00:00:36.768 --> 00:00:39.988
+But with RUNSAFE,
+it stops within nine loops.
 
 12
-00:00:36.984 --> 00:00:41.841
-With RUNSAFE, it stops within nine loops, and that limit is proved.
+00:00:40.028 --> 00:00:43.178
+And that limit is proved
+in a mathematical way.
 
 13
-00:00:45.600 --> 00:00:48.947
-Marc's job is checking whether claims hold up.
+00:00:44.254 --> 00:00:48.154
+In my job, I check whether claims hold up.
 
 14
-00:00:48.897 --> 00:00:50.088
-In a fine knit top,
+00:00:48.194 --> 00:00:50.694
+So I looked at a fine knit top.
 
 15
-00:00:50.088 --> 00:00:54.854
-a stitch dropped at the elbow can ladder twenty-two centimetres to the cuff,
+00:00:50.734 --> 00:00:54.894
+A stitch dropped at the elbow
+can ladder 22 cm to the cuff,
 
 16
-00:00:54.854 --> 00:00:57.336
+00:00:54.934 --> 00:00:57.944
 and an almost intact top is thrown away.
 
 17
-00:00:57.336 --> 00:01:02.648
-RUNSAFE began with a question: could knitwear carry a rating anyone can check?
+00:00:58.054 --> 00:01:00.924
+So I wanted a rating anyone could check.
 
 18
-00:01:05.600 --> 00:01:07.503
-The idea is simple.
+00:01:02.174 --> 00:01:03.734
+The idea is quite simple.
 
 19
-00:01:07.453 --> 00:01:10.650
-Every eight rows, RUNSAFE knits a barrier course,
+00:01:03.774 --> 00:01:07.534
+Every eight rows,
+RUNSAFE knits a barrier course,
 
 20
-00:01:10.650 --> 00:01:14.042
-where each loop is held by two loops instead of one.
+00:01:07.574 --> 00:01:11.054
+where each loop is held
+by two loops instead of one.
 
 21
-00:01:14.042 --> 00:01:17.805
-When a ladder reaches it, the second holder stops it.
+00:01:11.094 --> 00:01:15.194
+When a ladder reaches it,
+the second holder stops it.
 
 22
-00:01:17.805 --> 00:01:20.578
+00:01:15.234 --> 00:01:17.744
 And the proof doesn't rely on friction.
 
 23
-00:01:25.600 --> 00:01:27.801
+00:01:18.643 --> 00:01:21.103
 The hard part is the proof.
 
 24
-00:01:27.751 --> 00:01:30.080
-Up to nine stitches can drop from
+00:01:21.143 --> 00:01:26.703
+Up to nine stitches can drop from this
+sleeve in a 33-digit number of ways.
 
 25
-00:01:30.080 --> 00:01:32.974
-this sleeve in a 33-digit number of ways.
+00:01:26.743 --> 00:01:31.473
+No lab can test them all,
+so I proved the worst case for every one.
 
 26
-00:01:32.974 --> 00:01:34.718
-No lab can test them all,
+00:01:31.743 --> 00:01:34.783
+First, the fabric:
+one dropped stitch opens
 
 27
-00:01:34.718 --> 00:01:37.648
-so the worst case is proved for every one.
+00:01:34.823 --> 00:01:41.073
+at most one segment between barriers,
+and nine open at most 45, at any size.
 
 28
-00:01:37.648 --> 00:01:43.599
-First, the fabric: one dropped stitch opens at most one segment between barriers;
+00:01:41.403 --> 00:01:45.203
+Second, the machine:
+the program adds loops of its own,
 
 29
-00:01:43.599 --> 00:01:46.685
-nine open at most forty-five, at any size.
-
-30
-00:01:46.685 --> 00:01:50.439
-Second, the machine: the program adds loops of its own,
-
-31
-00:01:50.439 --> 00:01:53.169
+00:01:45.243 --> 00:01:47.483
 and the limit holds even when they fail.
 
+30
+00:01:47.523 --> 00:01:55.433
+And third, the cost: from 155 times
+the machine passes, down to 1.31.
+
+31
+00:01:56.143 --> 00:01:58.643
+And I checked it all
+with Carnegie Mellon's
+
 32
-00:01:53.169 --> 00:02:00.135
-Third, the cost: from 155 times the machine passes, down to 1.31.
+00:01:58.683 --> 00:02:02.773
+knitting simulator and over
+800,000 exhaustive tests.
 
 33
-00:02:00.135 --> 00:02:02.536
-And it is all checked with Carnegie
-
-34
-00:02:02.536 --> 00:02:06.789
-Mellon's knitting simulator and over 800,000 exhaustive tests.
-
-35
-00:02:10.600 --> 00:02:13.675
+00:02:03.614 --> 00:02:06.434
 So a designer no longer draws barriers.
 
+34
+00:02:06.474 --> 00:02:11.104
+They state the rating:
+one dropped stitch within a centimetre,
+
+35
+00:02:11.194 --> 00:02:16.604
+nine under 450 loops,
+and at most 35% more knitting.
+
 36
-00:02:13.625 --> 00:02:18.149
-They state the rating: one dropped stitch within a centimetre,
+00:02:17.074 --> 00:02:22.064
+RUNSAFE returns the cheapest proved
+construction: a barrier every eight rows.
 
 37
-00:02:18.149 --> 00:02:22.453
-nine under 450 loops, and at most 35 percent more knitting.
+00:02:22.394 --> 00:02:25.434
+Ask for 300 loops,
+and nothing fits the budget.
 
 38
-00:02:22.453 --> 00:02:27.948
-RUNSAFE returns the cheapest proved construction: a barrier every eight rows.
+00:02:25.474 --> 00:02:29.334
+Allow 50%, and it switches
+to staggered barriers,
 
 39
-00:02:27.948 --> 00:02:31.919
-Ask for 300 loops, and nothing fits the budget.
+00:02:29.374 --> 00:02:34.584
+compiled, verified and exported
+as a Shima Seiki machine file.
 
 40
-00:02:31.919 --> 00:02:36.025
-Allow 50 percent, and it switches to staggered barriers,
-
-41
-00:02:36.025 --> 00:02:40.643
-compiled, verified, and exported as a Shima Seiki machine file.
-
-42
-00:02:50.600 --> 00:02:53.115
+00:02:38.344 --> 00:02:40.604
 The rating goes on the care label.
 
+41
+00:02:40.644 --> 00:02:44.884
+Scan it, and your own phone
+downloads the knitting program,
+
+42
+00:02:44.924 --> 00:02:48.134
+rebuilds the loops
+and checks the proof again.
+
 43
-00:02:53.065 --> 00:02:56.694
-Scan it, and your own phone downloads the knitting program,
+00:02:48.204 --> 00:02:53.814
+A brand, a repairer or a buyer can verify
+it without taking my word for it.
 
 44
-00:02:56.694 --> 00:02:59.523
-rebuilds the loops and checks the proof again.
-
-45
-00:02:59.523 --> 00:03:01.953
-A brand, a repairer or a buyer can
-
-46
-00:03:01.953 --> 00:03:05.240
-verify it without taking anyone's word for it.
-
-47
-00:03:10.600 --> 00:03:11.757
+00:02:55.134 --> 00:02:57.034
 If a stitch drops,
 
-48
-00:03:11.757 --> 00:03:16.448
-the Studio shows which loops were released and lists the ones to re-form.
+45
+00:02:57.074 --> 00:03:01.764
+the Studio shows which loops were
+released and lists the ones to re-form.
 
-49
-00:03:16.398 --> 00:03:20.760
-How repairers restore barrier loops is one of the first tests.
+46
+00:03:01.954 --> 00:03:06.074
+How repairers restore barrier loops
+is one of my first tests.
 
-50
-00:03:20.760 --> 00:03:23.535
+47
+00:03:06.114 --> 00:03:11.664
 And the sleeve stays one continuous yarn,
-
-51
-00:03:23.535 --> 00:03:26.242
 ready to unravel at the end of its life.
 
-52
-00:03:30.600 --> 00:03:32.047
-Where does it go?
+48
+00:03:13.224 --> 00:03:15.114
+So, where does it go?
 
-53
-00:03:31.997 --> 00:03:34.888
+49
+00:03:15.384 --> 00:03:17.734
 Fine knitwear in smooth yarns first.
 
+50
+00:03:17.864 --> 00:03:24.094
+Next, tights, the classic ladder:
+130 million pairs a year in France alone.
+
+51
+00:03:24.904 --> 00:03:28.324
+Then, a damage rating
+in digital product passports.
+
+52
+00:03:28.364 --> 00:03:33.224
+And the climate case: the barrier repays
+its extra knitting once it prevents
+
+53
+00:03:33.264 --> 00:03:39.314
+1.3% of discards, even if only half of
+the longer wear replaces a new purchase.
+
 54
-00:03:34.888 --> 00:03:41.385
-Next, tights, the classic ladder: 130 million pairs a year in France alone.
+00:03:40.872 --> 00:03:45.942
+My three biggest challenges are
+physical validation, repair and adoption.
 
 55
-00:03:41.385 --> 00:03:45.513
-Then, a damage rating in digital product passports.
+00:03:46.152 --> 00:03:47.652
+First, I need a knitting laboratory
 
 56
-00:03:45.513 --> 00:03:46.877
-And the climate case:
+00:03:47.692 --> 00:03:52.922
+to test the limits on real fabrics
+after washing and wear.
 
 57
-00:03:46.877 --> 00:03:52.007
-the barrier repays its extra knitting once it prevents 1.3 percent of discards,
+00:03:53.172 --> 00:03:57.012
+Second, I need repair specialists to show
+how barrier loops can be restored,
 
 58
-00:03:52.007 --> 00:03:55.930
-even if only half of the longer wear replaces a new purchase.
-
-59
-00:04:00.600 --> 00:04:05.602
-The three biggest challenges are physical validation, repair and adoption.
-
-60
-00:04:05.552 --> 00:04:07.582
-First, a knitting laboratory,
-
-61
-00:04:07.582 --> 00:04:11.503
-to test the limit on real fabric after washing and wear.
-
-62
-00:04:11.503 --> 00:04:16.605
-Second, repair specialists, to show how barrier loops can be restored,
-
-63
-00:04:16.605 --> 00:04:17.844
+00:03:57.052 --> 00:03:58.452
 and at what cost.
 
+59
+00:03:58.492 --> 00:04:01.812
+And third, I need a brand partner
+to judge the look,
+
+60
+00:04:01.852 --> 00:04:04.142
+the production time
+and the willingness to pay.
+
+61
+00:04:04.492 --> 00:04:07.892
+The grant would fund these trials
+and give me time to lead them.
+
+62
+00:04:07.932 --> 00:04:10.772
+And the Changemaker Programme
+would connect me
+
+63
+00:04:10.812 --> 00:04:14.532
+with the people who can turn
+a proved design into knitwear people keep.
+
 64
-00:04:17.844 --> 00:04:20.652
-Third, a brand partner, to judge the look,
-
-65
-00:04:20.652 --> 00:04:23.794
-the production time and the willingness to pay.
-
-66
-00:04:23.794 --> 00:04:25.294
-That is the next step:
-
-67
-00:04:25.294 --> 00:04:29.042
-turning a proved design into knitwear that people keep.
+00:04:14.572 --> 00:04:15.572
+Thank you.
